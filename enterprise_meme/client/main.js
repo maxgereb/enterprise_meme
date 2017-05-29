@@ -14,27 +14,43 @@ Router.route('/start', function () {
   this.render('start');
 });
 
+var loggedInUser;
 UserList = new Mongo.Collection('users');
 // UserList.index({username: "text", userpassword: "text"});
 
 if (Meteor.isClient) {
+
   Template.index.events({
     'click #registerButton': function() {
       Router.go('/register');
     },
 
-    'submit form': function() {
+    'submit form': function(event) {
       event.preventDefault();
 
-      // var name = event.target.loginName.value;
-      // var password = event.target.loginPassword.value;
+      var name = event.target.loginName.value;
+      var password = event.target.loginPassword.value;
 
-      Router.go('/start');
+      const currentUser = UserList.find({username:name,}).fetch()[0];
+
+      if(currentUser==null || (currentUser.username != name || currentUser.userpassword!=password)){
+          alert("Wrong username or password");
+
+      }else{
+        console.log(currentUser.username);
+        loggedInUser=currentUser;
+        Router.go('/start');
+      }
+
     }
 
 
   });
-
+  Template.start.helpers({
+    userName:function(){
+      return loggedInUser.username;
+    }
+  });
   Template.register.events({
     'click #backIndex': function() {
       Router.go('/index');
@@ -83,7 +99,7 @@ if (Meteor.isClient) {
         document.getElementById('passwordMatchError').setAttribute('class', 'alert alert-danger hide-alert');
       }
 
-      UserList.insert({username: name, usermail: mail, userpasword: password});
+      UserList.insert({username: name, usermail: mail, userpassword: password});
 
       document.getElementById('registrationSuccess').setAttribute('class', 'alert alert-success show-alert');
     }

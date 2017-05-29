@@ -4,6 +4,7 @@
 </head>
 
 <body>
+ 
 </body>
 
 <template name="index">
@@ -11,11 +12,11 @@
     <div class="login-container">
       <form>
         <div class="form-group">
-          <input type="text" class="form-control" id="loginName" placeholder="Benutzername">
+          <input type="text" class="form-control" name="loginName" placeholder="Benutzername">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" id="loginPasswort" placeholder="Password">
+          <input type="text" class="form-control" name="loginPassword" placeholder="Password">
         </div>
 
         <div class="form-group">
@@ -59,7 +60,7 @@
       <div class="form-group">
         <button type="submit" id="registerAccount" class="btn btn-default">Registrieren</button>
         <button type="button" id="backIndex" class="btn btn-default">Zurück</button>
-        
+
       </div>
     </form>
   </div>
@@ -69,6 +70,7 @@
 <template name="start">
   <div class="container">
     <h1>Startseite</h1>
+    <h3>Welcome : {{userName}}</h3>
   </div>
 
 </template>
