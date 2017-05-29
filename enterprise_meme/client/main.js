@@ -10,6 +10,10 @@ Router.route('/register', function () {
   this.render('register');
 });
 
+Router.route('/start', function () {
+  this.render('start');
+});
+
 UserList = new Mongo.Collection('users');
 // UserList.index({username: "text", userpassword: "text"});
 
@@ -22,10 +26,10 @@ if (Meteor.isClient) {
     'submit form': function() {
       event.preventDefault();
 
-      var name = event.target.loginName.value;
-      var password = event.target.loginPassword.value;
+      // var name = event.target.loginName.value;
+      // var password = event.target.loginPassword.value;
 
-
+      Router.go('/start');
     }
 
 
