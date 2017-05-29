@@ -1,0 +1,25 @@
+.login-container {
+  /*background-color: blue;*/
+  width: 300px;
+  margin: auto;
+
+  position: relative;
+  top: calc(50% - 182px);
+}
+
+.index-container {
+  height: 100vh;
+}
+
+.register--button {
+  position: absolute;
+  right: 0;
+}
+
+.hide-alert {
+  display: none;
+}
+
+.show-alert {
+  display: block;
+}

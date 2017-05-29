@@ -1,11 +1,76 @@
 <head>
-  <title>enterprise_meme</title>
+  <title>Title goes here</title>
 </head>
 
 <body>
-  {{> hello}}
 </body>
 
-<template name="hello">
-  <h1>Under construction</h1>
+<template name="index">
+  <div class="container index-container">
+    <div class="login-container">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" id="loginName" placeholder="Benutzername">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="loginPasswort" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Login</button>
+          <button type="button" id="registerButton" class="btn btn-default register--button">Registrieren</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name="register">
+  <div class="container">
+    <h1 class="page-header">Registrieren</h1>
+    <div class="register-container">
+
+    <div id="passwordMatchError" class="alert alert-danger hide-alert" role="alert">Passwörter stimmen nicht überein</div>
+    <div id="noNameError" class="alert alert-danger hide-alert" role="alert">Bitte geben Sie einen Namen ein</div>
+    <div id="noMailError" class="alert alert-danger hide-alert" role="alert">Bitte geben Sie eine Mail Adresse an</div>
+    <div id="noPasswordError" class="alert alert-danger hide-alert" role="alert">Bitte geben Sie ein Password an</div>
+    <div id="noConfirmPasswordError" class="alert alert-danger hide-alert" role="alert">Bitte bestätigen Sie ihr Password</div>
+    <div id="registrationSuccess" class="alert alert-success hide-alert" role="alert">Erfolgreich registriert</div>
+
+    <form>
+      <div class="form-group">
+        <label for="registerName">Name</label>
+        <input type="text" class="form-control" id="registerName" placeholder="Name">
+      </div>
+
+      <div class="form-group">
+        <label for="registerMail">Mail</label>
+        <input type="email" class="form-control" id="registerMail" placeholder="Mail">
+      </div>
+
+      <div class="form-group">
+        <label for="registerPassword">Password</label>
+        <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+      </div>
+
+      <div class="form-group">
+        <label for="registerConfirmPassword">Password bestätigen</label>
+        <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Password bestätigen">
+      </div>
+
+      <div class="form-group">
+        <button type="button" id="backIndex" class="btn btn-default">Zurück</button>
+        <button type="submit" id="registerAccount" class="btn btn-default">Registrieren</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</template>
+
+<template name="start">
+  <div class="container">
+    <h1>Login Erfolgreich!!!!</h1>
+  </div>
+
 </template>
