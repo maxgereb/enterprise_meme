@@ -1,1 +1,22 @@
 /* CSS declarations go here */
+
+#form-user-input{
+	background-color: #5F5F5F;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right:10px;
+}
+
+.container{
+	width: 35%;
+	margin:auto;
+}
+
+.container h1{
+	text-align: center;
+}
+
+body{
+	background-color: #101010;
+}
