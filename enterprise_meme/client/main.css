@@ -75,3 +75,8 @@ input::-moz-placeholder{
 	font-weight: bold;
 }
 
+#logoutButton{
+	background-color: #FF0000;
+	color: white;
+	font-weight: bold;
+}

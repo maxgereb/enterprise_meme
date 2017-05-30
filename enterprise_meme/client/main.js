@@ -31,7 +31,9 @@ if (Meteor.isClient) {
       var name = event.target.loginName.value;
       var password = event.target.loginPassword.value;
 
-      const currentUser = UserList.find({username:name,}).fetch()[0];
+      var currentUser = UserList.find({username:name,}).fetch()[0];
+	  console.log(UserList.find().fetch());
+	  	
 
       if(currentUser==null || (currentUser.username != name || currentUser.userpassword!=password)){
           alert("Wrong username or password");
@@ -51,6 +53,14 @@ if (Meteor.isClient) {
       return loggedInUser.username;
     }
   });
+  Template.start.events({
+	  'click #logoutButton': function() {
+		  loggedInUser = null;
+		  Router.go('/index');
+	  }
+  });
+  
+  
   Template.register.events({
     'click #backIndex': function() {
       Router.go('/index');
@@ -58,7 +68,7 @@ if (Meteor.isClient) {
 
     'submit form': function() {
       event.preventDefault();
-
+console.log("hey");
       var name = event.target.registerName.value;
       var mail = event.target.registerMail.value;
       var password = event.target.registerPassword.value;
@@ -98,9 +108,9 @@ if (Meteor.isClient) {
       } else {
         document.getElementById('passwordMatchError').setAttribute('class', 'alert alert-danger hide-alert');
       }
-
+				
       UserList.insert({username: name, usermail: mail, userpassword: password});
-
+		
       document.getElementById('registrationSuccess').setAttribute('class', 'alert alert-success show-alert');
     }
   });
