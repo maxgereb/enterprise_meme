@@ -76,11 +76,20 @@ if (Meteor.isClient) {
 
     'submit form': function() {
       event.preventDefault();
-console.log("hey");
       var name = event.target.registerName.value;
       var mail = event.target.registerMail.value;
       var password = event.target.registerPassword.value;
       var confirmPassword = event.target.registerConfirmPassword.value;
+
+      if(UserList.findOne({username:name})){
+        document.getElementById('takenNameError').setAttribute('class', 'alert alert-danger show-alert');
+        return;
+      }
+
+      if(UserList.findOne({usermail:mail})){
+        document.getElementById('takenMailError').setAttribute('class', 'alert alert-danger show-alert');
+        return;
+      }
 
       if (name == '') {
         document.getElementById('noNameError').setAttribute('class', 'alert alert-danger show-alert');
