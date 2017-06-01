@@ -14,6 +14,14 @@ Router.route('/start', function () {
   this.render('start');
 });
 
+Router.route('/profile', function () {
+  this.render('profilepicture');
+});
+
+Router.route('/settings', function () {
+  this.render('profilesettings');
+});
+
 var loggedInUser;
 UserList = new Mongo.Collection('users');
 // UserList.index({username: "text", userpassword: "text"});

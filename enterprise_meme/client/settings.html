@@ -1,4 +1,4 @@
-<template name="start">
+<template name="profilesettings">
   <nav class="navbar navbar-default navbar-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -7,7 +7,7 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Hot<span class="sr-only">(current)</span></a></li>
+          <li class=""><a href="#">Hot<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Trending</a></li>
           <li><a href="#">Fresh</a></li>
           <li><a href="#">My Uploads</a></li>
@@ -25,7 +25,7 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
         <li><a href="/profile">Profilbild ändern</a></li>
-        <li><a href="/settings">Einstellungen</a></li>
+        <li class="active"><a href="/settings">Einstellungen</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -39,8 +39,24 @@
     </div>
   </nav>
 
-  <div class="container" id="welcome">
-    <h1>Startseite</h1>
-    <h1>Welcome : {{userName}} !</h1>
+  <div class="container">
+    <h1>Einstellungen</h1>
+  <form id="form-user-input">
+      <div class="form-group">
+        <input type="text" class="form-control" id="changeName" placeholder="Namen ändern">
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" id="changeMail" placeholder="Email ändern">
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" id="changePassword" placeholder="Passwort ändern">
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Neues Passwort bestätigen">
+      </div>
+      </form>
   </div>
 </template>

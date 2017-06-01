@@ -1,4 +1,4 @@
-<template name="start">
+<template name="profilepicture">
   <nav class="navbar navbar-default navbar-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -7,7 +7,7 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Hot<span class="sr-only">(current)</span></a></li>
+          <li class=""><a href="#">Hot<span class="sr-only">(current)</span></a></li>
           <li><a href="#">Trending</a></li>
           <li><a href="#">Fresh</a></li>
           <li><a href="#">My Uploads</a></li>
@@ -24,7 +24,7 @@
         </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-        <li><a href="/profile">Profilbild ändern</a></li>
+        <li class="active"><a href="/profile">Profilbild ändern</a></li>
         <li><a href="/settings">Einstellungen</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
@@ -39,8 +39,15 @@
     </div>
   </nav>
 
-  <div class="container" id="welcome">
-    <h1>Startseite</h1>
-    <h1>Welcome : {{userName}} !</h1>
+  <div class="container">
+    <h1>Profilbild ändern</h1>
+<div class="fileinput fileinput-new" data-provides="fileinput">
+  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+  <div>
+    <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+  </div>
+</div>
+
   </div>
 </template>
