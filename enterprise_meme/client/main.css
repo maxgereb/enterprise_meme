@@ -57,18 +57,11 @@ input::-moz-placeholder{
 	border-radius: 0px;
 }
 
-.navbar{
-	color: white;
-}
 
 .navbar-default{
 	background-color: rgb(57,59,71);
-	color: pink;
 }
 
-.navbar-left ul li a {
-  color:red;
-}
 
 
 #registerAccount{
