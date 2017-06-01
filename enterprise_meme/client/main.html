@@ -1,5 +1,6 @@
 <head>
-	<div id="header">
+
+	<div id="page-header">
 				<a href="/start"> <h1>Meme Fiesta</h1></a>
 				</div>
   <title>Title goes here</title>
@@ -24,7 +25,7 @@
 
         <div class="form-group">
           <button type="submit" id="loginButton" class="btn btn-default">Login</button>
-          <button type="button" id="registerButton" class="btn btn-default register--button">Noch kein Account?</button>
+          <button type="button" id="registerButton" class="btn btn-default register--button">Noch keinen Account?</button>
         </div>
       </form>
     </div>
@@ -36,6 +37,8 @@
     <h1 class="page-header">Registrieren</h1>
     <div class="register-container">
 
+    <div id="takenMailError" class="alert alert-danger hide-alert" role="alert">Email Adresse schon vergeben</div>
+    <div id="takenNameError" class="alert alert-danger hide-alert" role="alert">Name schon vergeben</div>
     <div id="passwordMatchError" class="alert alert-danger hide-alert" role="alert">Passwörter stimmen nicht überein</div>
     <div id="noNameError" class="alert alert-danger hide-alert" role="alert">Bitte geben Sie einen Namen ein</div>
     <div id="noMailError" class="alert alert-danger hide-alert" role="alert">Bitte geben Sie eine Mail Adresse an</div>
@@ -70,11 +73,4 @@
   </div>
 </template>
 
-<template name="start">
-  <div class="container" id="welcome">
-    <h1>Startseite</h1>
-    <h1>Welcome : {{userName}} !</h1>
-	<h1><button type="button" id="logoutButton" class="btn btn-default">Logout</button></h1>
-  </div>
 
-</template>

@@ -33,6 +33,7 @@
 
 body{
 	background-color: #181C1D;
+	padding-top: 70px; 
 }
 
 .form-control{
@@ -54,6 +55,11 @@ input::-moz-placeholder{
 .btn-default{
 	border: 0px;
 	border-radius: 0px;
+}
+
+
+.navbar-default{
+	background-color: rgb(57,59,71);
 }
 
 #registerAccount{
