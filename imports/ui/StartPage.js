@@ -8,13 +8,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 export default class StartPage extends React.Component {
 
+  handleLogout(){
+    Accounts.logout();
+  }
   render(){
     return (
 
       <div>
 
-        <ReactBootstrap.Button bsStyle="success" bsSize="small">
-            Hello
+        <ReactBootstrap.Button onClick={this.handleLogout.bind(this)} bsStyle="success" bsSize="small">
+            Logout
         </ReactBootstrap.Button>
       </div>
     );
