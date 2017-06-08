@@ -43,7 +43,7 @@ export default class RegisterForm extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="wrapper centered border">
 
         <form onSubmit={this.handleRegister}>
 
@@ -51,18 +51,19 @@ export default class RegisterForm extends React.Component {
           <div>
             <input type="password" id="password" placeholder="Password"/>
           </div>
-
-          <div>
-            <ReactBootstrap.Button type="submit" bsStyle="success" bsSize="small">
+          <div className="wrapper__button">
+            <Button type="submit" bsStyle="success" bsSize="small">
               Register
-            </ReactBootstrap.Button>
+            </Button>
 
           </div>
         </form>
-        <div className="wrapper">
-          <ReactBootstrap.Button className='wrapper' onClick={this.redirectToLogin.bind(this)} bsStyle="danger" bsSize="medium">
-            You already have an account?
-          </ReactBootstrap.Button>
+        <div className="wrapper__button">
+          <center>
+            <Button onClick={this.redirectToLogin.bind(this)} bsStyle="danger" bsSize="medium">
+              You already have an account?
+            </Button>
+          </center>
         </div>
       </div>
     );

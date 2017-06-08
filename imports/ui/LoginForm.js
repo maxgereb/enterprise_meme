@@ -31,7 +31,8 @@ export default class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='wrapper centered border'>
+
         <form onSubmit={this.handleLogin.bind(this)}>
           <div>
             <input type="text" id="email" placeholder="Email"/>
@@ -39,16 +40,19 @@ export default class LoginForm extends React.Component {
           <div>
             <input type="password" id="password" placeholder="Password"/>
           </div>
-          <div>
+          <div className="wrapper__button">
             <Button type="submit" bsStyle="success" bsSize="medium">
               Login
             </Button>
           </div>
         </form>
-        <div className="wrapper">
-          <Button onClick={this.redirectToRegister.bind(this)} type="submit" bsStyle="danger" bsSize="medium">
-            You don't have an account?
-          </Button>
+        <div className="wrapper__button">
+          <center>
+            <Button onClick={this.redirectToRegister.bind(this)} type="submit" bsStyle="danger" bsSize="medium">
+              You don't have an account?
+            </Button>
+          </center>
+
         </div>
 
       </div>
