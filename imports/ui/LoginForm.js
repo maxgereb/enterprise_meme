@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Users} from './../api/users';
 import {Meteor} from 'meteor/meteor';
 import {browserHistory} from 'react-router';
-import * as ReactBootstrap from 'react-bootstrap'
+import {Button} from 'react-bootstrap';
 
 export default class LoginForm extends React.Component {
 
@@ -40,15 +40,15 @@ export default class LoginForm extends React.Component {
             <input type="password" id="password" placeholder="Password"/>
           </div>
           <div>
-            <ReactBootstrap.Button type="submit" bsStyle="success" bsSize="medium">
+            <Button type="submit" bsStyle="success" bsSize="medium">
               Login
-            </ReactBootstrap.Button>
+            </Button>
           </div>
         </form>
         <div className="wrapper">
-          <ReactBootstrap.Button onClick={this.redirectToRegister.bind(this)} type="submit" bsStyle="danger" bsSize="medium">
+          <Button onClick={this.redirectToRegister.bind(this)} type="submit" bsStyle="danger" bsSize="medium">
             You don't have an account?
-          </ReactBootstrap.Button>
+          </Button>
         </div>
 
       </div>

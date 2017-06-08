@@ -23,3 +23,5 @@ accounts-base
 accounts-password
 twbs:bootstrap
 fourseven:scss
+cfs:standard-packages
+cfs:gridfs
