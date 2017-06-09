@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Users} from './../api/users';
 import {Accounts} from 'meteor/accounts-base';
-import * as ReactBootstrap from 'react-bootstrap';
 import {browserHistory} from 'react-router';
 import {
   Button,
@@ -43,16 +42,16 @@ export default class RegisterForm extends React.Component {
   }
   render() {
     return (
-      <div className="wrapper centered border">
-
+      <div className="wrapper container">
+        <img src="https://cdn4.iconfinder.com/data/icons/people-std-pack/512/guy-512.png"/>
         <form onSubmit={this.handleRegister}>
 
-          <input type="email" id="email" placeholder="Email"/>
+          <FormControl type="email" id="email" placeholder="Email"/>
           <div>
-            <input type="password" id="password" placeholder="Password"/>
+            <FormControl type="password" id="password" placeholder="Password"/>
           </div>
           <div className="wrapper__button">
-            <Button type="submit" bsStyle="success" bsSize="small">
+            <Button type="submit" bsStyle="success" bsSize="medium">
               Register
             </Button>
 
