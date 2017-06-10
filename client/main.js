@@ -13,6 +13,7 @@ export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
 const authencticatedPages = ['/startPage'];
 
+/* KACHEV IMA MALKA PISHKA */
 const onEnterPublicPage = () => {
   /* If logged in and on a public page redirect to startPage */
   if (Meteor.userId()) {
