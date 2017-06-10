@@ -6,10 +6,11 @@ import ReactDOM from 'react-dom';
 import Navigationbar from './Navigationbar';
 import MemeList from './MemeList';
 import UploadImageComponent from './UploadImageComponent';
-import Images from './../api/memes';
+import {Memes} from './../api/memes';
+import {all_memes} from './../../client/main';
 import Blaze from 'meteor/gadicc:blaze-react-component';
 import {Template} from 'meteor/templating';
-
+import PropTypes from 'prop-types';
 import {
   Button,
   Navbar,
@@ -20,15 +21,20 @@ import {
 } from 'react-bootstrap';
 
 export default class StartPage extends React.Component {
+
   handleLogout() {
     Accounts.logout();
   }
   render() {
+
+    console.log("Startpage-a ", this.props.all_memes);
     return (
 
       <div>
+
         <div><Navigationbar/></div>
-        <div><MemeList memes={[1, 2]}/></div>
+
+        <div><MemeList all_memes={[]}/></div>
 
         <center>
           <div className="wrapper"><UploadImageComponent/></div>

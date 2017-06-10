@@ -4,35 +4,47 @@ import {
   Nav,
   NavItem,
   NavDropdown,
-  MenuItem
+  MenuItem,
+  FormGroup,
+  FormControl
 } from 'react-bootstrap';
 import React from 'react';
 export default class Navigationbar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse collapseOnSelect>
+        <Navbar className="navbar_properties" style={{
+          position: 'absolute',
+          top: 0,
+          flex: 1,
+          alignSelf: 'stretch',
+          right: 0,
+          left: 0
+        }} inverse collapseOnSelect>
           <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">MemeFiesta</a>
+            <Navbar.Brand className=" navbar-brand">
+              <a href="#"><img src="/images/memefiestlog.png"/></a>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#">Link</NavItem>
-              <NavItem eventKey={2} href="#">Link</NavItem>
-              <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>Action</MenuItem>
-                <MenuItem eventKey={3.2}>Another action</MenuItem>
-                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                <MenuItem divider/>
-                <MenuItem eventKey={3.3}>Separated link</MenuItem>
-              </NavDropdown>
+              <NavItem eventKey={1} href="#">Hot</NavItem>
+              <NavItem eventKey={2} href="#">Fresh</NavItem>
+
+              <Navbar.Collapse>
+                <Navbar.Form pullLeft>
+                  <FormGroup>
+                    <FormControl type="text" placeholder="Search"/>
+                  </FormGroup>
+                  {' '}
+                  <Button type="submit">Submit</Button>
+                </Navbar.Form>
+              </Navbar.Collapse>
+
             </Nav>
             <Nav pullRight>
-              <NavItem eventKey={1} href="#">Link Right</NavItem>
-              <NavItem eventKey={2} href="#">Link Right</NavItem>
+              <NavItem eventKey={1} href="#">Profile</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

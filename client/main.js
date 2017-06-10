@@ -7,26 +7,9 @@ import {Tracker} from 'meteor/tracker';
 import StartPage from './../imports/ui/StartPage';
 import LoginForm from './../imports/ui/LoginForm';
 import RegisterForm from './../imports/ui/RegisterForm';
-import Images from './../imports/api/memes';
+import {Memes} from './../imports/api/memes.js';
 
-Images.allow({
-  'insert': function() {
-    // add custom authentication code here
-    return true;
-  },
-  'update': function() {
-    // add custom authentication code here
-    return true;
-  },
-  'remove': function() {
-    // add custom authentication code here
-    return true;
-  },
-  download: function(userId, fileObj) {
-    return true
-  }
-});
-
+export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
 const authencticatedPages = ['/startPage'];
 
@@ -48,27 +31,36 @@ const routes = (
     <div>
       <Route path="/register" component={RegisterForm} onEnter={onEnterPublicPage}/>
       <Route path="/" component={LoginForm} onEnter={onEnterPublicPage}/>
-      <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
+      <Route path="/startPage" component={() => (<StartPage all_memes={all_memes}/>)} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
 );
 
-Tracker.autorun(() => {
-  const isAuthenticated = !!Meteor.userId(); //Convert string to boolean
-  const pathName = browserHistory.getCurrentLocation().pathname;
-  const isUnauthenticatedPage = unauthenticatedPages.includes(pathName);
-  const isAuthenticatedPage = authencticatedPages.includes(pathName);
-
-  // Redirect to the links page
-  if (isAuthenticated && isUnauthenticatedPage) {
-    browserHistory.replace('/startPage');
-  } else if (!isAuthenticated && isAuthenticatedPage) {
-    browserHistory.replace('/');
-  }
-  console.log('isAuthenticated', isAuthenticated);
-
-});
-
 Meteor.startup(() => {
-  ReactDOM.render(routes, document.getElementById('main'));
+
+  Tracker.autorun(() => {
+    all_memes = Memes.find().fetch();
+    console.log("shithead ", all_memes.length);
+    ReactDOM.render(routes, document.getElementById('main'));
+  });
+
+  Tracker.autorun(() => {
+
+    const isAuthenticated = !!Meteor.userId(); //Convert string to boolean
+    const pathName = browserHistory.getCurrentLocation().pathname;
+    const isUnauthenticatedPage = unauthenticatedPages.includes(pathName);
+    const isAuthenticatedPage = authencticatedPages.includes(pathName);
+
+    // Redirect to the links page
+    if (isAuthenticated && isUnauthenticatedPage) {
+
+      browserHistory.replace('/startPage');
+    } else if (!isAuthenticated && isAuthenticatedPage) {
+      browserHistory.replace('/');
+    }
+    console.log('isAuthenticated', isAuthenticated);
+
+    ReactDOM.render(routes, document.getElementById('main'));
+
+  });
 });

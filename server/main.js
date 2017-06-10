@@ -1,13 +1,7 @@
 import {Meteor} from 'meteor/meteor';
-import Images from './../imports/api/memes';
+import {Memes} from './../imports/api/memes.js';
 
 Meteor.startup(() => {
-  // code to run on server at startup
-  Images.allow({
-    'insert': function() {
-      // add custom authentication code here
-      return true;
-    }
-  });
-  console.log("Server started");
+
+  console.log("Server started ", Memes.find().fetch().length);
 });

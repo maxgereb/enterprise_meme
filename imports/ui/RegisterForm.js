@@ -42,7 +42,7 @@ export default class RegisterForm extends React.Component {
   }
   render() {
     return (
-      <div className="wrapper container">
+      <div className="wrapper my_form">
         <img src="https://cdn4.iconfinder.com/data/icons/people-std-pack/512/guy-512.png"/>
         <form onSubmit={this.handleRegister}>
 

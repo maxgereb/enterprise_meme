@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class Meme extends React.Component {
 
   render() {
+    console.log("shto");
     return (
       <div>
         <center>

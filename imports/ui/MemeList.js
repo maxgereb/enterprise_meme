@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Meme from './Meme';
+import {all_memes} from './../../client/main';
 export default class MemeList extends React.Component {
 
   renderMemesInAList() {
-
+    console.log("shto");
     /* If there are no memes */
-    if (this.props.memes.length == 0) {
+    if (this.props.all_memes.length == 0) {
       /* TODO: Appropriate message */
       return (
         <div>
@@ -18,7 +19,9 @@ export default class MemeList extends React.Component {
       );
 
     } else {
-      return this.props.memes.map((meme) => {
+
+      return this.props.all_memes.map((meme) => {
+
         return (<Meme/>);
       });
     }
