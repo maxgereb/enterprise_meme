@@ -32,18 +32,12 @@ const routes = (
     <div>
       <Route path="/register" component={RegisterForm} onEnter={onEnterPublicPage}/>
       <Route path="/" component={LoginForm} onEnter={onEnterPublicPage}/>
-      <Route path="/startPage" component={() => (<StartPage all_memes={all_memes}/>)} onEnter={onEnterPrivatePage}/>
+      <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
 );
 
 Meteor.startup(() => {
-
-  Tracker.autorun(() => {
-    all_memes = Memes.find().fetch();
-    console.log("shithead ", all_memes.length);
-    ReactDOM.render(routes, document.getElementById('main'));
-  });
 
   Tracker.autorun(() => {
 
