@@ -81,7 +81,7 @@ export default class UploadPage extends React.Component {
           <Button bsStyle="success" bsSize="large" className="submitButton" type="submit" onClick={(e) => this._handleSubmit(e)}>Upload Image</Button>
         </form>
 		<center>
-		<Button bsStyle="primary" bsSize="medium" className="goBack" type="submit" onClick={(e) => this.goBack(e)}>Go Back</Button>
+		<Button bsStyle="primary" bsSize="medium" className="goBack" onClick={(e) => this.goBack(e)}>Go Back</Button>
 		</center>
       </div>
     )

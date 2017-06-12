@@ -10,11 +10,28 @@ import {
 } from 'react-bootstrap';
 import React from 'react';
 import {browserHistory} from 'react-router';
+import {Memes} from './../api/memes';
 export default class Navigationbar extends React.Component {
 
   redirectToUploadPage() {
     browserHistory.replace("/upload");
   }
+  searchSubmit(){
+	  var searchWord = document.getElementById('searchField').value;
+	  if(document.getElementById('searchField').value){
+			var filteredMemes =[];
+			Memes.find().fetch().forEach(function(eachMeme){
+				if(eachMeme.hashtags.includes(searchWord)){
+					filteredMemes.push(eachMeme);
+					console.log("namerih");
+				}
+			});
+		this.props.changeStartpageState(filteredMemes);
+	  }else{
+		  this.props.changeStartpageState(Memes.find().fetch());
+	  }
+  }
+  
   render() {
     return (
       <div>
@@ -37,12 +54,12 @@ export default class Navigationbar extends React.Component {
               <NavItem eventKey={1} href="#">Hot</NavItem>
               <NavItem eventKey={2} href="#">Fresh</NavItem>
 
-              <Navbar.Form pullLeft>
+              <Navbar.Form pullLeft onSubmit={(e) => this.searchSubmit(e)}>
                 <FormGroup>
-                  <FormControl type="text" placeholder="Search"/>
+                  <FormControl type="text" id="searchField" placeholder="Search"/>
                 </FormGroup>
                 {' '}
-                <Button type="submit">Submit</Button>
+                <Button type="submit" onClick={(e) => this.searchSubmit(e)}>Submit</Button>
               </Navbar.Form>
 
             </Nav>

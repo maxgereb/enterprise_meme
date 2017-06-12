@@ -19,7 +19,24 @@ import {
 } from 'react-bootstrap';
 
 export default class StartPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      memes: []
+    };
+	this.searchStateChange = this.searchStateChange.bind(this);
+  }
 
+  componentDidMount() {
+    this.linksTracker = Tracker.autorun(() => {
+      const memes = Memes.find().fetch();
+      this.setState({memes});
+    });
+  }
+	searchStateChange(filteredMemes){
+		console.log("she smenqme li");
+		this.setState({memes:filteredMemes});
+	}
   handleLogout() {
     Accounts.logout();
   }
@@ -29,9 +46,9 @@ export default class StartPage extends React.Component {
 
       <div>
 
-        <div><Navigationbar/></div>
+        <div><Navigationbar changeStartpageState={this.searchStateChange} /></div>
 
-        <div><MemeList/></div>
+        <div><MemeList currentMemeList={this.state.memes} /></div>
 
         <center>
           
@@ -40,7 +57,7 @@ export default class StartPage extends React.Component {
               Logout</Button>
           </div>
         </center>
-
+		
       </div>
     );
   }
