@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import {Users} from './../api/users';
 import {Meteor} from 'meteor/meteor';
 import {browserHistory} from 'react-router';
-import {Button, FormControl} from 'react-bootstrap';
+import {
+  Button,
+  Navbar,
+  Nav,
+  NavItem,
+  NavDropdown,
+  MenuItem,
+  FormControl
+} from 'react-bootstrap';
 
 export default class LoginForm extends React.Component {
 

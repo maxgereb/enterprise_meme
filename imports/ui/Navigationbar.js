@@ -9,7 +9,12 @@ import {
   FormControl
 } from 'react-bootstrap';
 import React from 'react';
+import {browserHistory} from 'react-router';
 export default class Navigationbar extends React.Component {
+
+  redirectToUploadPage() {
+    browserHistory.replace("/upload");
+  }
   render() {
     return (
       <div>
@@ -32,19 +37,22 @@ export default class Navigationbar extends React.Component {
               <NavItem eventKey={1} href="#">Hot</NavItem>
               <NavItem eventKey={2} href="#">Fresh</NavItem>
 
-              <Navbar.Collapse>
-                <Navbar.Form pullLeft>
-                  <FormGroup>
-                    <FormControl type="text" placeholder="Search"/>
-                  </FormGroup>
-                  {' '}
-                  <Button type="submit">Submit</Button>
-                </Navbar.Form>
-              </Navbar.Collapse>
+              <Navbar.Form pullLeft>
+                <FormGroup>
+                  <FormControl type="text" placeholder="Search"/>
+                </FormGroup>
+                {' '}
+                <Button type="submit">Submit</Button>
+              </Navbar.Form>
 
             </Nav>
             <Nav pullRight>
+
               <NavItem eventKey={1} href="#">Profile</NavItem>
+              <NavItem href="#">
+                <Button onClick={this.redirectToUploadPage.bind(this)} className="navbar-btn" bsStyle="primary">Upload+</Button>
+              </NavItem>
+
             </Nav>
           </Navbar.Collapse>
         </Navbar>

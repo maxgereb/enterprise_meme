@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Meme from './Meme';
 import {Tracker} from 'meteor/tracker';
 import {Memes} from './../api/memes';
+
+import {Image, Button, FormControl} from 'react-bootstrap';
 export default class MemeList extends React.Component {
 
   constructor(props) {
@@ -19,13 +21,14 @@ export default class MemeList extends React.Component {
     });
   }
   renderMemesInAList() {
+    console.log("hui");
     return this.state.memes.map((meme) => {
       return (
         <div>
 
           <center>
-            <h1>MEME TITLE</h1>
-            <img src={meme.memeImage}/>
+            <Meme meme={meme}/>
+
           </center>
         </div>
       );

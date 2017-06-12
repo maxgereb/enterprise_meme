@@ -7,11 +7,12 @@ import {Tracker} from 'meteor/tracker';
 import StartPage from './../imports/ui/StartPage';
 import LoginForm from './../imports/ui/LoginForm';
 import RegisterForm from './../imports/ui/RegisterForm';
+import UploadPage from './../imports/ui/UploadPage';
 import {Memes} from './../imports/api/memes.js';
 
 export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
-const authencticatedPages = ['/startPage'];
+const authencticatedPages = ['/startPage', '/upload'];
 
 /* KACHEV IMA MALKA PISHKA */
 const onEnterPublicPage = () => {
@@ -33,6 +34,7 @@ const routes = (
       <Route path="/register" component={RegisterForm} onEnter={onEnterPublicPage}/>
       <Route path="/" component={LoginForm} onEnter={onEnterPublicPage}/>
       <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
+      <Route path="/upload" component={UploadPage}/>
     </div>
   </Router>
 );

@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {Image, Button, FormControl} from 'react-bootstrap';
 export default class Meme extends React.Component {
 
   render() {
     console.log("shto");
     return (
       <div>
-        <center>
-          <h3>Title of the Meme</h3>
-          <img src="http://www.50-best.com/images/funny_nerd_memes/memory_stick_nerd_meme.jpg"/>
-        </center>
+
+        <h1>MEME TITLE</h1>
+        <div className="parent_container">
+          <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/></div>
+
       </div>
     );
   }
