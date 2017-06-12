@@ -8,10 +8,12 @@ export default class Meme extends React.Component {
     return (
       <div>
 
-        <h1>MEME TITLE</h1>
+        <h1>{this.props.meme.description}</h1>
         <div className="parent_container">
-          <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/></div>
-
+          <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/>
+		  Hastags: {this.props.meme.hashtags},Votes: {this.props.meme.votes}, uploded by {this.props.meme.uploaderName} 
+		  </div>
+			
       </div>
     );
   }
