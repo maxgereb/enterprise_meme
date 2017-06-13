@@ -5,7 +5,7 @@ form {
 
 
 body{
-  background:#B2DFDB;
+  background:#181C1D;
   font-family: Helvetica, Arial, sans-serif;
   font-size:1.6rem;
 }
@@ -14,3 +14,4 @@ body{
 @import './../imports/client/ui/navbarlogo';
 @import './../imports/client/ui/navbar';
 @import './../imports/client/ui/image_attributes';
+@import './../imports/client/ui/genericform'

@@ -44,20 +44,20 @@ export default class StartPage extends React.Component {
 
     return (
 
-      <div>
+      <div className="genericform">
 
         <div><Navigationbar changeStartpageState={this.searchStateChange} /></div>
 
         <div><MemeList currentMemeList={this.state.memes} /></div>
 
         <center>
-          
+
           <div>
             <Button onClick={this.handleLogout.bind(this)} bsStyle="primary" bsSize="large">
               Logout</Button>
           </div>
         </center>
-		
+
       </div>
     );
   }

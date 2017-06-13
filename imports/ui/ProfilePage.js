@@ -23,7 +23,7 @@ export default class ProfilePage extends React.Component{
   render(){
     console.log("stava neshto toka");
     return(
-      <div>
+      <div className="genericform">
         <h1>Hello maina ! Here are your memes:</h1>
         <RenderProfilePageMemes currentProfileMemes={this.state.currentProfileMemes}/>
         <Button bsSize="large" bsStyle="primary" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</Button>

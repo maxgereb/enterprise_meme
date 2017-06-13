@@ -68,7 +68,8 @@ export default class UploadPage extends React.Component {
     }
 
     return (
-      <div className="previewComponent">
+      <div className="previewComponent genericform">
+      <header> <h1>Upload Memes</h1> </header>
         <form onSubmit={(e) => this._handleSubmit(e)}>
 		<center>
           <input className="fileInput"  type="file" onChange={(e) => this._handleImageChange(e)}/>
