@@ -48,12 +48,13 @@ Meteor.startup(() => {
     const pathName = browserHistory.getCurrentLocation().pathname;
     const isUnauthenticatedPage = unauthenticatedPages.includes(pathName);
     const isAuthenticatedPage = authencticatedPages.includes(pathName);
-
+    console.log("PATHNAME ", pathName);
     // Redirect to the links page
     if (isAuthenticated && isUnauthenticatedPage) {
 
       browserHistory.replace('/startPage');
     } else if (!isAuthenticated && isAuthenticatedPage) {
+
       browserHistory.replace('/');
     }
     console.log('isAuthenticated', isAuthenticated);
