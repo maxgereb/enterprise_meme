@@ -14,7 +14,7 @@ import {Memes} from './../api/memes';
 export default class Navigationbar extends React.Component {
 
   redirectToUploadPage() {
-    browserHistory.replace("/upload");
+    browserHistory.push("/upload");
   }
   searchSubmit(){
 	  var searchWord = document.getElementById('searchField').value;
@@ -65,7 +65,7 @@ export default class Navigationbar extends React.Component {
             </Nav>
             <Nav pullRight>
 
-              <NavItem eventKey={1} onClick={()=>{browserHistory.replace("/profile");}}>Profile</NavItem>
+              <NavItem eventKey={1} onClick={()=>{browserHistory.push("/profile");}}>Profile</NavItem>
               <NavItem href="#">
                 <Button onClick={this.redirectToUploadPage.bind(this)} className="navbar-btn" bsStyle="primary">Upload+</Button>
               </NavItem>

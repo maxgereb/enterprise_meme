@@ -13,7 +13,7 @@ export default class UploadPage extends React.Component {
 	  hashtags: [],
 	  votes: 0,
 	  description: ''
-	  
+
     };
   }
 
@@ -33,7 +33,7 @@ export default class UploadPage extends React.Component {
 		console.log(this.state.votes);
 		Memes.insert({memeImage: data.target.result, uploaderId: this.state.uploaderId,uploaderName: this.state.uploaderName, description: this.state.description, hashtags: this.state.hashtags, votes: this.state.votes});
 		alert("Upload successful!");
-		browserHistory.replace('/startPage');
+		browserHistory.push('/startPage');
       }
       FR.readAsDataURL(this.state.file);
     }
@@ -41,7 +41,7 @@ export default class UploadPage extends React.Component {
   }
 	goBack(e){
 		e.preventDefault();
-		browserHistory.replace('/startPage');
+		browserHistory.push('/startPage');
 	}
   _handleImageChange(e) {
     e.preventDefault();

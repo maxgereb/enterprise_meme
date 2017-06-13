@@ -16,7 +16,7 @@ import {
 export default class LoginForm extends React.Component {
 
   redirectToRegister() {
-    browserHistory.replace('/register');
+    browserHistory.push('/register');
   };
   handleLogin(event) {
 
@@ -24,7 +24,7 @@ export default class LoginForm extends React.Component {
     let userEmail = event.target.email.value;
     let password = event.target.password.value;
     event.preventDefault();
-    console.log(userEmail, " ", password, "dadadadadadaad");
+    console.log(userEmail, " ", password);
 
     Meteor.loginWithPassword({
       email: userEmail

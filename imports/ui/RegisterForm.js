@@ -14,7 +14,7 @@ import {
 } from 'react-bootstrap';
 export default class RegisterForm extends React.Component {
   redirectToLogin() {
-    browserHistory.replace('/');
+    browserHistory.push('/');
   };
   handleRegister(event) {
     /* Extracting user data */
