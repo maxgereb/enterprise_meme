@@ -31,7 +31,10 @@ export default class LoginForm extends React.Component {
     }, password, (err) => {
       if (Meteor.userId()) {
         browserHistory.replace('/startPage');
-      }
+      }else{
+		  alert("Wrong email or password!")
+		  
+	  }
 
     });
 

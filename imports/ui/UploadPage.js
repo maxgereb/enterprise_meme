@@ -26,7 +26,7 @@ export default class UploadPage extends React.Component {
     for (var i = 0; i < all_tags.length; i++) {
       all_tags[i] = "#" + all_tags[i];
     }
-    this.state.hashtags.push(all_tags);
+    this.state.hashtags=all_tags;
     if (this.state.file) {
       let FR = new FileReader();
       FR.onload = (data) => {
