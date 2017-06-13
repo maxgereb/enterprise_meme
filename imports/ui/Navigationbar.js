@@ -31,7 +31,7 @@ export default class Navigationbar extends React.Component {
 		  this.props.changeStartpageState(Memes.find().fetch());
 	  }
   }
-  
+
   render() {
     return (
       <div>
@@ -65,7 +65,7 @@ export default class Navigationbar extends React.Component {
             </Nav>
             <Nav pullRight>
 
-              <NavItem eventKey={1} href="#">Profile</NavItem>
+              <NavItem eventKey={1} onClick={()=>{browserHistory.replace("/profile");}}>Profile</NavItem>
               <NavItem href="#">
                 <Button onClick={this.redirectToUploadPage.bind(this)} className="navbar-btn" bsStyle="primary">Upload+</Button>
               </NavItem>

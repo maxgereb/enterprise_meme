@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import {Router, Route, browserHistory} from 'react-router';
 import {Tracker} from 'meteor/tracker';
-
+import ProfilePage from './../imports/ui/ProfilePage';
 import StartPage from './../imports/ui/StartPage';
 import LoginForm from './../imports/ui/LoginForm';
 import RegisterForm from './../imports/ui/RegisterForm';
@@ -12,7 +12,7 @@ import {Memes} from './../imports/api/memes.js';
 
 export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
-const authencticatedPages = ['/startPage', '/upload'];
+const authencticatedPages = ['/startPage', '/upload','/profile'];
 
 /* KACHEV IMA MALKA PISHKA */
 const onEnterPublicPage = () => {
@@ -34,7 +34,8 @@ const routes = (
       <Route path="/register" component={RegisterForm} onEnter={onEnterPublicPage}/>
       <Route path="/" component={LoginForm} onEnter={onEnterPublicPage}/>
       <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
-      <Route path="/upload" component={UploadPage}/>
+      <Route path="/upload" component={UploadPage} onEnter={onEnterPrivatePage}/>
+      <Route path="/profile" component={ProfilePage} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
 );
