@@ -5,10 +5,11 @@ import {Memes} from './../api/memes.js';
 import {Router} from 'react-router';
 import {Meteor} from 'meteor/meteor';
 export default class Meme extends React.Component {
-	editDescription(e){
-		 e.preventDefault();
+	editDescription(event){
+		 event.preventDefault();
+		 
+		 var newDescription = event.target.descriptionEdit.value;
 		 console.log(newDescription);
-		 var newDescription = document.getElementById('descriptionEdit').value;
 		if(newDescription){
 			console.log(newDescription);
 			Memes.update(this.props.meme._id, {
@@ -29,10 +30,14 @@ export default class Meme extends React.Component {
 			return(
 				<div>
 					<div>
+					<form onSubmit={this.editDescription.bind(this)}>
+					<center>
 					<FormControl	style={{width: 400}} type="text" id="descriptionEdit" placeholder="Enter new description"/>
-					<Button onClick={(e)=> this.editDescription(e)} bsStyle="warning" bsSize="sm">
+					</center>
+					<Button type="submit" bsStyle="warning" bsSize="sm">
 					  Save description
 					</Button>
+					</form>
 					</div>
 					<div>
 					<Button onClick={(e)=> this.deleteMeme(e)} bsStyle="danger" bsSize="medium">
