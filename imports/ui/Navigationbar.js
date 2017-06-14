@@ -63,14 +63,13 @@ export default class Navigationbar extends React.Component {
               </Navbar.Form>
 
             </Nav>
-            <Nav pullRight>
 
-              <NavItem eventKey={1} onClick={()=>{browserHistory.push("/profile");}}>Profile</NavItem>
-              <NavItem href="#">
-                <Button onClick={this.redirectToUploadPage.bind(this)} className="navbar-btn" bsStyle="primary">Upload+</Button>
-              </NavItem>
 
-            </Nav>
+            <Navbar.Form pullRight>
+
+       <Button bsStyle="primary" onClick={this.redirectToUploadPage.bind(this)} >Upload+</Button>
+       <Button bsStyle="warning" onClick={()=>{browserHistory.push("/profile");}} >Profile</Button>
+     </Navbar.Form>
           </Navbar.Collapse>
         </Navbar>
       </div>
