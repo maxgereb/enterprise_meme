@@ -33,7 +33,13 @@ export default class RegisterForm extends React.Component {
 
     Accounts.createUser({
       email,
-      password
+      password,
+      profile: {
+            profile_picture:"https://upliterate01static.s3.amazonaws.com/media/media/images/avatars/Anonymous_avatar_2015-11-21_165159.9017010000.png",
+            givenName: 'John',
+            surname: 'Doe',
+            gender: 'M'
+        }
     }, (err) => {
       console.log("User", email, "created");
 

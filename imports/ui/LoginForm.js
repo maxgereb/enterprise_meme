@@ -33,7 +33,7 @@ export default class LoginForm extends React.Component {
         browserHistory.replace('/startPage');
       }else{
 		  alert("Wrong email or password!")
-		  
+
 	  }
 
     });
