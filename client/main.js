@@ -9,7 +9,7 @@ import LoginForm from './../imports/ui/LoginForm';
 import RegisterForm from './../imports/ui/RegisterForm';
 import UploadPage from './../imports/ui/UploadPage';
 import {Memes} from './../imports/api/memes.js';
-
+import ProfileSettings from './../imports/ui/ChangeProfileSettings';
 export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
 const authencticatedPages = ['/startPage', '/upload','/profile'];
@@ -36,6 +36,7 @@ const routes = (
       <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
       <Route path="/upload" component={UploadPage} onEnter={onEnterPrivatePage}/>
       <Route path="/profile" component={ProfilePage} onEnter={onEnterPrivatePage}/>
+        <Route path="/settings" component={ProfileSettings} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
 );

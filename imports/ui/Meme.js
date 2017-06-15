@@ -7,7 +7,7 @@ import {Meteor} from 'meteor/meteor';
 export default class Meme extends React.Component {
 	editDescription(event){
 		 event.preventDefault();
-		 
+
 		 var newDescription = event.target.descriptionEdit.value;
 		 console.log(newDescription);
 		if(newDescription){
@@ -22,73 +22,78 @@ export default class Meme extends React.Component {
 	deleteMeme(e){
 		e.preventDefault();
 		Memes.remove(this.props.meme._id);
-		
+
 	}
 	isProfilePage(){
 			if(window.location.pathname.endsWith("profile")){
-			console.log("VPROFILA SUM")
+
 			return(
 				<div>
-					<div>
+
 					<form onSubmit={this.editDescription.bind(this)}>
 					<center>
-					<FormControl	style={{width: 400}} type="text" id="descriptionEdit" placeholder="Enter new description"/>
+					<FormControl className="form_control" style={{width: 400}} type="text" id="descriptionEdit" placeholder="Enter new description"/>
 					</center>
-					<Button type="submit" bsStyle="warning" bsSize="sm">
+					<button className="button_warning_sunflower" type="submit">
 					  Save description
-					</Button>
-					</form>
-					</div>
-					<div>
-					<Button onClick={(e)=> this.deleteMeme(e)} bsStyle="danger" bsSize="medium">
+					</button>
+
+
+
+					<button className="button_danger_red" onClick={(e)=> this.deleteMeme(e)} >
 					  Delete meme!
-					</Button>
-					</div>
+					</button>
+					</form>
+
 				</div>
-			
+
 			);
 			}else{
 				return(
 					<div>
-					  <ButtonGroup>
-						<Button onClick={() => {
+					  <ButtonGroup >
+
+						<button className="button_upvote" onClick={() => {
 						  Memes.update(this.props.meme._id, {
 							$inc: {
 							  votes: 1
 							}
 						  });
-						}} bsStyle="success">Upvote</Button>
-						<Button onClick={() => {if(this.props.meme.votes>0){
+						}} >+</button>
+
+
+						<button className="button_downvote" onClick={() => {if(this.props.meme.votes>0){
 							  Memes.update(this.props.meme._id, {
 								$inc: {
 								  votes: -1
 								}
 							  });
 							}
-						}} bsStyle="danger">Downvote</Button>
+						}} >-</button>
 
 					  </ButtonGroup>
 					</div>
-				
-				
-				
+
+
+
 				);
-				
-				
+
+
 			}
-			
-			
+
+
 		}
   render() {
-			
+
 
     return (
       <div>
-        <h1>{this.props.meme.description}</h1>
+
         <div className="meme_container">
+					<h3>{this.props.meme.description}</h3>
           <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/>
-          Hastags: {this.props.meme.hashtags},Votes: {this.props.meme.votes}, uploded by {this.props.meme.uploaderName}
-        </div>
+            Hastags: {this.props.meme.hashtags}  ,  Votes: {this.props.meme.votes} , <div> Uploded by {this.props.meme.uploaderName}</div>
+       </div>
 		{ this.isProfilePage()}
 
 		<br/><br/>

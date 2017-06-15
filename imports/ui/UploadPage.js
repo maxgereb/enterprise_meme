@@ -81,23 +81,26 @@ export default class UploadPage extends React.Component {
     return (
       <div className="previewComponent genericform">
       <header> <h1>Upload Memes</h1> </header>
+        <br></br>
+        <br></br>
+        <br></br>
         <form onSubmit={(e) => this._handleSubmit(e)}>
           <center>
-            <input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/>
-            <FormControl type="text" style={{
+            <input className="fileInput form_control" type="file" onChange={(e) => this._handleImageChange(e)}/>
+            <FormControl className="form_control" type="text" style={{
               width: 400
             }} id="descriptionInput" placeholder="Enter description"/>
-            <FormControl type="text" style={{
+            <FormControl className="form_control" type="text" style={{
               width: 400
             }} id="hashtagInput" placeholder="Enter Hashtag"/>
           </center>
           <div className="imgPreview">
             {$imagePreview}
           </div>
-          <Button bsStyle="success" bsSize="large" className="submitButton" type="submit" onClick={(e) => this._handleSubmit(e)}>Upload Image</Button>
+          <button className="button_success_cyan" type="submit" onClick={(e) => this._handleSubmit(e)}>Upload Image</button>
         </form>
         <center>
-          <Button bsStyle="primary" bsSize="medium" className="goBack" onClick={(e) => this.goBack(e)}>Go Back</Button>
+        <button className="button_primary_purple" onClick={(e) => this.goBack(e)}>Go Back</button>
         </center>
       </div>
     )

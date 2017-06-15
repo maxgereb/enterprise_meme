@@ -6,8 +6,12 @@ form {
 
 body{
   background:#181C1D;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family:  Helvetica, sans-serif;
   font-size:1.6rem;
+}
+
+h1{
+  font-family:  Verdana , Helvetica, sans-serif;
 }
 
 @import './../imports/client/ui/login_register_forms';
@@ -16,3 +20,5 @@ body{
 @import './../imports/client/ui/image_attributes';
 @import './../imports/client/ui/genericform';
 @import './../imports/client/ui/profile_picture';
+@import './../imports/client/ui/buttons_adjustments';
+@import './../imports/client/ui/form_control_adjustments';

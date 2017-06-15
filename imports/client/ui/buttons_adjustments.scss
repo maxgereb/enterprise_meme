@@ -1,0 +1,178 @@
+.button_primary_purple {
+  background-color:  #5b4681;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 1.4rem;
+  padding: 1rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background: #9b59b6;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.button_success_cyan {
+  background-color:  #009688;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 1.4rem;
+  padding: 1rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background: #1abc9c;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.button_danger_red {
+  background-color:#ef5350;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 1.4rem;
+  padding: 1rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+     background: #c0392b;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+
+.button_upvote {
+  background-color: #27ae60;
+  border: 2px solid black;
+  border-radius: 100%;
+  height: 4rem;
+  font-weight: bold;
+  width: 4rem;
+  color: black;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 1.4rem;
+  padding: 1rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background: #388E3C;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.button_downvote {
+  background-color: #ef5350;
+  border: 2px solid black;
+  border-radius: 100%;
+  height: 4rem;
+  width: 4rem;
+  color: black;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 1.4rem;
+  padding: 1rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background: #c62828;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.button_warning_sunflower {
+  background-color: #f39c12  ;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 1.4rem;
+  padding: 1rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background:#f1c40f;
+
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+
+.button_primary_navbar_purple {
+  background-color:  #5b4681;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.0;
+  margin-right: 0.8rem;
+  padding: 0.7rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background: #9b59b6;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}
+
+.button_warning_navbar_sunflower {
+  background-color:#f39c12 ;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1.0;
+  padding: 0.7rem;
+  text-transform: uppercase;
+
+
+  &:hover, &:focus {
+    background:#f1c40f;
+
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+}

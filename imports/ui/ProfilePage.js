@@ -20,52 +20,9 @@ export default class ProfilePage extends React.Component{
 
 
 
-  _handleImageChange(e) {
-    e.preventDefault();
-
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
-		
-      this.setState({profile_picture: file});
-    }
-
-    reader.readAsDataURL(file)
-
-  }
-
-  _handleSubmit(event) { //this function is called whenever a file was dropped in your dropzone
-    event.preventDefault();
-
-
-
-    if (this.state.profile_picture) {
-      console.log("LOGNAV");
-      let FR = new FileReader();
-      FR.onload = (data) => {
-
-      Meteor.users.update(Meteor.userId(), { $set: { 'profile.profile_picture': data.target.result } });
-        // Memes.insert({
-        //   memeImage: data.target.result,
-        //   uploaderId: "this.state.uploaderId",
-        //   uploaderName: "this.state.uploaderName",
-        //   description: "this.state.description",
-        //   hashtags:" this.state.hashtags",
-        //   votes:0
-        // });
-        alert("Upload successful!");
-        browserHistory.push('/startPage');
-      }
-      FR.readAsDataURL(this.state.profile_picture);
-    }
-
-  }
-  _resetProfilePhoto(){
-     Meteor.users.update(Meteor.userId(), { $set: { 'profile.profile_picture': "https://upliterate01static.s3.amazonaws.com/media/media/images/avatars/Anonymous_avatar_2015-11-21_165159.9017010000.png" } });
-
-  }
+redirectToProfileSettingsPage(){
+  browserHistory.push("/settings");
+}
   componentDidMount(){
     this.profilePictureTracker = Tracker.autorun(()=>{
       console.log("stana trackercheto");
@@ -101,25 +58,35 @@ export default class ProfilePage extends React.Component{
   render(){
 
     return(
-      <div className="genericform">
+    //   <div className="genericform">
+    //
+    //     <img className="profile_picture_adjustments" src={this.state.profile_picture}/>
+    //     <center>
+    //     <input  className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/>
+    //     <button className="button_primary_purple " onClick={(e) => this._handleSubmit(e)}>Upload</button>
+    //
+    //     <button className="button_success_cyan" onClick={this._resetProfilePhoto.bind(this)}>Reset Photo</button>
+    //     </center>
+    //
+		// <h2>Do you want to change your password?</h2>
+		// <form onSubmit={(e)=>this._changePassword(e)}>
+		// <center>
+		// 	<FormControl className="form_control" style={{width: 350}} type="password" id="oldPassword" placeholder="Enter old password"/>
+		// 	<FormControl className="form_control"  style={{width: 350}} type="password" id="newPassword" placeholder="Email new password"/>
+		// 	<button className="button_danger_red" type="submit" >Change password</button>
+		// </center>
+		// </form>
+    <div>
 
-        <img className="profile_picture_adjustments" onClick={(e) => this._handleSubmit(e)} src={this.state.profile_picture}/>
-        <center><input className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/>
-        <Button onClick={this._resetProfilePhoto.bind(this)} bsStyle="danger" bsSize="small">Reset Photo</Button>
-        </center>
-        
-		<h2>Do you want to change your password?</h2>
-		<form onSubmit={(e)=>this._changePassword(e)}>
-		<center>
-			<FormControl style={{width: 350}} type="password" id="oldPassword" placeholder="Enter old password"/>
-			<FormControl style={{width: 350}} type="password" id="newPassword" placeholder="Email new password"/>
-			<Button type="submit" bsStyle="primary" bsSize="small">Change password</Button>
-		</center>
-		</form>
-		
-        <h1>Hello Maina ! Here are your memes:</h1>
+    <div className="genericform">
+      <img className="profile_picture_adjustments" src={this.state.profile_picture}/>
+    </div>
+
+        <center>
+          <button className="button_primary_purple"  onClick={this.redirectToProfileSettingsPage.bind(this)} >Profile settings</button>
+          <h1>What's up! Here are your memes:</h1></center>
         <RenderProfilePageMemes currentProfileMemes={this.state.currentProfileMemes}/>
-        <center><Button bsSize="large" bsStyle="primary" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</Button></center>
+        <center><button className="button_primary_purple" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</button></center>
       </div>
     );
   }

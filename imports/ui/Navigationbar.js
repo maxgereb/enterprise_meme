@@ -67,8 +67,8 @@ export default class Navigationbar extends React.Component {
 
             <Navbar.Form pullRight>
 
-       <Button bsStyle="primary" onClick={this.redirectToUploadPage.bind(this)} >Upload+</Button>
-       <Button bsStyle="warning" onClick={()=>{browserHistory.push("/profile");}} >Profile</Button>
+       <button className="button_primary_navbar_purple"  onClick={this.redirectToUploadPage.bind(this)} >Upload+</button>
+       <button className="button_warning_navbar_sunflower" onClick={()=>{browserHistory.push("/profile");}} >Profile</button>
      </Navbar.Form>
           </Navbar.Collapse>
         </Navbar>

@@ -62,8 +62,8 @@ export default class StartPage extends React.Component {
         <center>
 
           <div>
-            <Button onClick={this.handleLogout.bind(this)} bsStyle="primary" bsSize="large">
-              Logout</Button>
+            <button className="button_primary_purple" onClick={this.handleLogout.bind(this)}>
+              Logout</button>
           </div>
         </center>
 
