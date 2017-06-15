@@ -6,6 +6,7 @@ import {Meteor} from 'meteor/meteor';
 import {Users} from './../api/users';
 import {browserHistory} from 'react-router';
 import {Accounts} from 'meteor/accounts-base'
+import Navigationbar from './Navigationbar';
 
 export default class ProfileSettings extends React.Component {
 constructor(props){
@@ -95,6 +96,7 @@ constructor(props){
   render() {
     return (
       <div className="genericform">
+      <div><Navigationbar/></div>
 
         <img className="profile_picture_adjustments" src={this.state.profile_picture}/>
         <center>
@@ -112,7 +114,7 @@ constructor(props){
             }} type="password" id="oldPassword" placeholder="Enter old password"/>
             <FormControl className="form_control" style={{
               width: 350
-            }} type="password" id="newPassword" placeholder="Email new password"/>
+            }} type="password" id="newPassword" placeholder="Enter new password"/>
             <button className="button_danger_red" type="submit">Change password</button>
             <button className="button_primary_purple" onClick={()=>{browserHistory.push("/profile")}}>Go back to profile</button>
           </center>

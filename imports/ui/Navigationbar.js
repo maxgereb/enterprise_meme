@@ -45,7 +45,7 @@ export default class Navigationbar extends React.Component {
         }} inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand className=" navbar-brand">
-              <a href="#"><img src="/images/memefiestlog.png"/></a>
+              <a href="/startpage"><img src="/images/memefiestlog.png"/></a>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>

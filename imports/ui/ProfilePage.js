@@ -6,6 +6,7 @@ import {Meteor} from 'meteor/meteor';
 import {Users} from './../api/users';
 import {browserHistory} from 'react-router';
 import { Accounts } from 'meteor/accounts-base'
+import Navigationbar from './Navigationbar';
 
 export default class ProfilePage extends React.Component{
 
@@ -77,7 +78,7 @@ redirectToProfileSettingsPage(){
 		// </center>
 		// </form>
     <div>
-
+    <div><Navigationbar /></div>
     <div className="genericform">
       <img className="profile_picture_adjustments" src={this.state.profile_picture}/>
     </div>

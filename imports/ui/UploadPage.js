@@ -2,6 +2,7 @@ import React from 'react';
 import {Memes} from './../api/memes.js';
 import {Button, FormControl} from 'react-bootstrap';
 import {browserHistory} from 'react-router';
+import Navigationbar from './Navigationbar';
 export default class UploadPage extends React.Component {
   constructor(props) {
     super(props);
@@ -80,6 +81,7 @@ export default class UploadPage extends React.Component {
 
     return (
       <div className="previewComponent genericform">
+      <div><Navigationbar/></div>
       <header> <h1>Upload Memes</h1> </header>
         <br></br>
         <br></br>
