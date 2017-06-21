@@ -21,9 +21,7 @@ export default class ProfilePage extends React.Component{
 
 
 
-redirectToProfileSettingsPage(){
-  browserHistory.push("/settings");
-}
+
   componentDidMount(){
     this.profilePictureTracker = Tracker.autorun(()=>{
       console.log("stana trackercheto");
@@ -59,24 +57,7 @@ redirectToProfileSettingsPage(){
   render(){
 
     return(
-    //   <div className="genericform">
-    //
-    //     <img className="profile_picture_adjustments" src={this.state.profile_picture}/>
-    //     <center>
-    //     <input  className="fileInput" type="file" onChange={(e) => this._handleImageChange(e)}/>
-    //     <button className="button_primary_purple " onClick={(e) => this._handleSubmit(e)}>Upload</button>
-    //
-    //     <button className="button_success_cyan" onClick={this._resetProfilePhoto.bind(this)}>Reset Photo</button>
-    //     </center>
-    //
-		// <h2>Do you want to change your password?</h2>
-		// <form onSubmit={(e)=>this._changePassword(e)}>
-		// <center>
-		// 	<FormControl className="form_control" style={{width: 350}} type="password" id="oldPassword" placeholder="Enter old password"/>
-		// 	<FormControl className="form_control"  style={{width: 350}} type="password" id="newPassword" placeholder="Email new password"/>
-		// 	<button className="button_danger_red" type="submit" >Change password</button>
-		// </center>
-		// </form>
+
     <div>
     <div><Navigationbar /></div>
     <div className="genericform">
@@ -84,10 +65,28 @@ redirectToProfileSettingsPage(){
     </div>
 
         <center>
-          <button className="button_primary_purple"  onClick={this.redirectToProfileSettingsPage.bind(this)} >Profile settings</button>
-          <h1>What's up! Here are your memes:</h1></center>
-        <RenderProfilePageMemes currentProfileMemes={this.state.currentProfileMemes}/>
-        <center><button className="button_primary_purple" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</button></center>
+
+          <div>
+          <button className="button_primary_purple"  onClick={()=>{
+            browserHistory.push("/myMemes");
+          }} >Uploaded Memes</button>
+         </div>
+
+
+         <div>
+         <button className="button_primary_purple" style={{width:150}} onClick={()=>{
+           browserHistory.push("/myFriends");
+         }}>Friends</button>
+         </div>
+
+          <div>
+          <button className="button_primary_purple"  onClick={()=>{
+            browserHistory.push("/settings");
+          }} >Profile settings</button>
+          </div>
+
+
+          <button className="button_primary_purple" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</button></center>
       </div>
     );
   }

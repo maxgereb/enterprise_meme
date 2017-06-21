@@ -8,7 +8,7 @@ export default class MemeList extends React.Component {
 
 
   renderMemesInAList() {
-    console.log("hui");
+ 
 
     return this.props.currentMemeList.map((meme) => {
       return (

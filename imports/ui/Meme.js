@@ -25,7 +25,7 @@ export default class Meme extends React.Component {
 
 	}
 	isProfilePage(){
-			if(window.location.pathname.endsWith("profile")){
+			if(window.location.pathname.endsWith("myMemes")){
 
 			return(
 				<div>

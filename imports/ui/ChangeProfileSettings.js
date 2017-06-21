@@ -115,8 +115,9 @@ constructor(props){
             <FormControl className="form_control" style={{
               width: 350
             }} type="password" id="newPassword" placeholder="Enter new password"/>
-            <button className="button_danger_red" type="submit">Change password</button>
             <button className="button_primary_purple" onClick={()=>{browserHistory.push("/profile")}}>Go back to profile</button>
+            <button className="button_danger_red" type="submit">Change password</button>
+
           </center>
         </form>
       </div>
