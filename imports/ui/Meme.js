@@ -4,6 +4,7 @@ import {Image, Button, FormControl, ButtonGroup} from 'react-bootstrap';
 import {Memes} from './../api/memes.js';
 import {Router} from 'react-router';
 import {Meteor} from 'meteor/meteor';
+import CommentSection from './CommentSection';
 export default class Meme extends React.Component {
 	editDescription(event){
 		 event.preventDefault();
@@ -44,7 +45,7 @@ export default class Meme extends React.Component {
 					  Delete meme!
 					</button>
 					</form>
-
+				
 				</div>
 
 			);
@@ -93,9 +94,13 @@ export default class Meme extends React.Component {
 					<h3>{this.props.meme.description}</h3>
           <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/>
             Hastags: {this.props.meme.hashtags}  ,  Votes: {this.props.meme.votes} , <div> Uploaded by {this.props.meme.uploaderName}</div>
+			<div>
+				
+			</div>
        </div>
+	   
 		{ this.isProfilePage()}
-
+		<CommentSection currentMeme={this.props.meme}/>
 		<br/><br/>
       </div>
     );

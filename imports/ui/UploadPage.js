@@ -13,8 +13,8 @@ export default class UploadPage extends React.Component {
       uploaderName: '',
       hashtags: [],
       votes: 0,
-      description: ''
-
+      description: '',
+	  comments: []
     };
   }
 
@@ -42,7 +42,8 @@ export default class UploadPage extends React.Component {
           uploaderName: this.state.uploaderName,
           description: this.state.description,
           hashtags: this.state.hashtags,
-          votes: this.state.votes
+          votes: this.state.votes,
+		  comments: this.state.comments
         });
         alert("Upload successful!");
         browserHistory.push('/startPage');
