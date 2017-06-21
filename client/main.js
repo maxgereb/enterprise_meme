@@ -12,6 +12,7 @@ import ProfileMemes from './../imports/ui/ProfileMemes';
 import {Memes} from './../imports/api/memes.js';
 import ProfileSettings from './../imports/ui/ChangeProfileSettings';
 import ProfileFriendsPage from './../imports/ui/ProfileFriendsPage';
+import FriendsList from './../imports/ui/FriendsList';
 export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
 const authencticatedPages = ['/startPage', '/upload','/profile','/myMemes','/myFriends'];
@@ -40,7 +41,8 @@ const routes = (
       <Route path="/profile" component={ProfilePage} onEnter={onEnterPrivatePage}/>
       <Route path="/settings" component={ProfileSettings} onEnter={onEnterPrivatePage}/>
       <Route path="/myMemes" component={ProfileMemes} onEnter={onEnterPrivatePage}/>
-      <Route path="/myFriends" component={ProfileFriendsPage} onEnter={onEnterPrivatePage}/>
+      <Route path="/myFriends" component={FriendsList} onEnter={onEnterPrivatePage}/>
+      <Route path="/manageFriends" component={ProfileFriendsPage} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
 );

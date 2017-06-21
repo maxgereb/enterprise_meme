@@ -23,7 +23,7 @@ export default class AllUsersList extends React.Component{
   componentDidMount(){
 
     this.usersTracker=Tracker.autorun(()=>{
-      console.log("Kolko chesto vikam tracker useri");
+      //console.log("Kolko chesto vikam tracker useri");
       const allUsers = Meteor.users.find({}).fetch();
       console.log("Kolko chesto vikam tracker useri ",allUsers);
       this.setState({allUsers});
@@ -35,14 +35,27 @@ export default class AllUsersList extends React.Component{
   }
 
 
+  addToFriends(user){
+    Meteor.users.update(Meteor.userId(), { $addToSet: { 'profile.friendsList': user } });
 
+  }
 
   renderAllUsers(){
     console.log("kolko user ",this.state.allUsers.length);
     return this.state.allUsers.map((user)=>{
+
+      /* Don't show my profile only other users */
+      if(user._id==Meteor.userId()){
+        return(
+          <div></div>
+        );
+      }
       return (
-        <div>
+        <div className="item">
           <User key={user._id} currentUser={user}/>
+          <button className="button_success_cyan" onClick={()=>{
+            this.addToFriends(user);
+          }}>Add to Friends</button>
         </div>
       );
     });

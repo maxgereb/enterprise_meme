@@ -75,7 +75,7 @@ export default class ProfilePage extends React.Component{
 
          <div>
          <button className="button_primary_purple" style={{width:150}} onClick={()=>{
-           browserHistory.push("/myFriends");
+           browserHistory.push("/manageFriends");
          }}>Friends</button>
          </div>
 

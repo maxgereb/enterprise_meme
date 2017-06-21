@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 export default class Friend extends React.Component{
 
   render(){
@@ -7,7 +7,9 @@ export default class Friend extends React.Component{
     return(
       <div>
         <center>
-        <h3>Az sum aver 1no</h3>
+        <div className="item">
+          <h1>{this.props.friend.profile.givenName}</h1>
+        </div>
         </center>
     </div>
     );

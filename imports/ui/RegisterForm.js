@@ -20,7 +20,7 @@ export default class RegisterForm extends React.Component {
     /* Extracting user data */
     let email = event.target.email.value;
     let password = event.target.password.value;
-
+    let name = event.target.name.value;
     event.preventDefault();
 
     /* Handle empty fields */
@@ -30,15 +30,16 @@ export default class RegisterForm extends React.Component {
 
     event.target.email.value = '';
     event.target.password.value = '';
-
+    event.target.name.value='';
     Accounts.createUser({
       email,
       password,
       profile: {
             profile_picture:"https://upliterate01static.s3.amazonaws.com/media/media/images/avatars/Anonymous_avatar_2015-11-21_165159.9017010000.png",
-            givenName: 'John',
+            givenName: name,
             surname: 'Doe',
-            gender: 'M'
+            gender: 'M',
+            friendsList: []
         }
     }, (err) => {
       console.log("User", email, "created");
@@ -52,10 +53,14 @@ export default class RegisterForm extends React.Component {
         <img src="https://cdn4.iconfinder.com/data/icons/people-std-pack/512/guy-512.png"/>
         <form onSubmit={this.handleRegister}>
 
+          <div>
+            <FormControl type="name" id="name" placeholder="Name"/>
+          </div>
           <FormControl type="email" id="email" placeholder="Email"/>
           <div>
             <FormControl type="password" id="password" placeholder="Password"/>
           </div>
+
           <div className="wrapper__button">
             <Button type="submit" bsStyle="success" bsSize="medium">
               Register
