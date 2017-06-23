@@ -21,6 +21,7 @@ export default class RegisterForm extends React.Component {
     let email = event.target.email.value;
     let password = event.target.password.value;
     let name = event.target.name.value;
+    let surname = event.target.surname.value;
     event.preventDefault();
 
     /* Handle empty fields */
@@ -31,13 +32,14 @@ export default class RegisterForm extends React.Component {
     event.target.email.value = '';
     event.target.password.value = '';
     event.target.name.value='';
+    event.target.surname.value='';
     Accounts.createUser({
       email,
       password,
       profile: {
             profile_picture:"https://upliterate01static.s3.amazonaws.com/media/media/images/avatars/Anonymous_avatar_2015-11-21_165159.9017010000.png",
             givenName: name,
-            surname: 'Doe',
+            surname: surname,
             gender: 'M',
             friendsList: []
         }
@@ -54,11 +56,14 @@ export default class RegisterForm extends React.Component {
         <form onSubmit={this.handleRegister}>
 
           <div>
-            <FormControl type="name" id="name" placeholder="Name"/>
+            <FormControl className="form_control" type="name" id="name" placeholder="Name"/>
           </div>
-          <FormControl type="email" id="email" placeholder="Email"/>
           <div>
-            <FormControl type="password" id="password" placeholder="Password"/>
+            <FormControl className="form_control" type="name" id="surname" placeholder="Surname"/>
+          </div>
+          <FormControl className="form_control" type="email" id="email" placeholder="Email"/>
+          <div>
+            <FormControl className="form_control" type="password" id="password" placeholder="Password"/>
           </div>
 
           <div className="wrapper__button">

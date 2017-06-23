@@ -1,4 +1,6 @@
 /* CSS declarations go here */
+
+
 form {
   text-align: center;
 }
@@ -23,3 +25,4 @@ h1{
 @import './../imports/client/ui/buttons_adjustments';
 @import './../imports/client/ui/form_control_adjustments';
 @import './../imports/client/ui/user_box';
+@import './../imports/client/ui/comment_box';

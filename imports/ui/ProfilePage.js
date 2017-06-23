@@ -44,8 +44,7 @@ export default class ProfilePage extends React.Component{
   }
   _changePassword(event){
 	  event.preventDefault();
-	  console.log(event.target.oldPassword.value);
-	  console.log(event.target.newPassword.value);
+	 
 	  Accounts.changePassword(event.target.oldPassword.value, event.target.newPassword.value, function(error) {
 		  if (error) {
 			alert("Password change failed! Are you sure your current password is correct?");
@@ -86,7 +85,17 @@ export default class ProfilePage extends React.Component{
           </div>
 
 
-          <button className="button_primary_purple" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</button></center>
+          <button className="button_primary_purple" onClick={()=>{browserHistory.push("/startpage")}}>Go back to startpage!</button>
+          <div>
+            <button className="button_primary_purple" onClick={()=>{
+
+                Accounts.logout();
+                browserHistory.replace('/');
+              }
+            }>
+              Logout</button>
+          </div>
+          </center>
       </div>
     );
   }

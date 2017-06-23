@@ -46,10 +46,10 @@ export default class LoginForm extends React.Component {
         <img src="https://cdn4.iconfinder.com/data/icons/people-std-pack/512/guy-512.png"/>
         <form onSubmit={this.handleLogin.bind(this)}>
           <div>
-            <FormControl type="text" id="email" placeholder="Email"/>
+            <FormControl className="form_control" type="text" id="email" placeholder="Email"/>
           </div>
           <div>
-            <FormControl type="password" id="password" placeholder="Password"/>
+            <FormControl className="form_control" type="password" id="password" placeholder="Password"/>
           </div>
           <div className="wrapper__button">
             <Button type="submit" bsStyle="success" bsSize="medium">

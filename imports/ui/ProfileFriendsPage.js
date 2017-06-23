@@ -9,12 +9,9 @@ export default class ProfileFriendsPage extends React.Component{
       <div>
         <div className="profilepage_meme_container">
         <center>
-
-        <h1>KUDE SA MI AVERITE</h1>
-
           <AllUsersList/>
 
-          <button className="button_success_cyan" onClick={()=>{
+          <button className="button_danger_red" onClick={()=>{
             browserHistory.push("/myFriends");
           }}>Show me my friends</button>
 

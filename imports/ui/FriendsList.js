@@ -37,6 +37,15 @@ export default class FriendsList extends React.Component{
 
     renderAllFriends(){
       //console.log("kolko user ",this.state.allFriends.length);
+      if(this.state.myFriends.length==0){
+        return (
+          <div>
+            <center>
+            <h2> You don't have any friends yet!</h2>
+            </center>
+          </div>
+        );
+      }
       return this.state.myFriends.map((friend)=>{
 
 
@@ -45,6 +54,8 @@ export default class FriendsList extends React.Component{
             <Friend friend={friend}/>
           </div>
         );
+
+
       });
     }
     render(){
@@ -54,10 +65,10 @@ export default class FriendsList extends React.Component{
 
             <center>
 
-             <h1>All friends</h1>
+             <div className="profilepage_meme_container">
 
              {this.renderAllFriends()}
-
+           </div>
           </center>
 
        </div>

@@ -5,13 +5,14 @@ export default class Friend extends React.Component{
   render(){
 
     return(
-      <div>
-        <center>
-        <div className="item">
-          <h1>{this.props.friend.profile.givenName}</h1>
-        </div>
-        </center>
+  
+    <div>
+        <img className="profile_picture_adjustments" src={this.props.friend.profile.profile_picture}/>
+        <div> Name: {this.props.friend.profile.givenName} </div>
+        <div> Surname: {this.props.friend.profile.surname} </div>
+
     </div>
+
     );
   }
 }

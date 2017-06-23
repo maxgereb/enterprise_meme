@@ -12,6 +12,7 @@ import {
   NavItem,
   NavDropdown,
   MenuItem,
+	Modal,
   FormControl
 } from 'react-bootstrap';
 export default class CommentSection extends React.Component {
@@ -22,84 +23,94 @@ export default class CommentSection extends React.Component {
 	 console.log(this.props.currentMeme._id);
 	 console.log(Accounts.userId());
 	 var contentOfComment = event.target.textAreaComment.value;
-	 var currentUser = Accounts.userId();
+	 var currentUser = Meteor.user().profile.givenName;
 	 if(event.target.textAreaComment.value){
 	 Memes.update(this.props.currentMeme._id,{
 								$push: {
 								  comments: {
+									ownerOfComment_id:Accounts.userId(),
 									commentText: contentOfComment,
-									ownerOfComment: currentUser,
+									ownerOfComment_name: currentUser,
 									_id: idOfNewComment
 								  }
 								}
 		});
-	
-		
-		
+
+
+
 	 }
   }
   _deleteComment(currentComment){
 	  	  console.log("id OF comment");
 	  console.log(currentComment._id);
 	  Memes.update(this.props.currentMeme._id,
-		  { $pull: 
-				{ 'comments': 
-						{ _id: currentComment._id } 
-				} 
+		  { $pull:
+				{ 'comments':
+						{ _id: currentComment._id }
+				}
 		  }
 		);
 
   }
   _isCommentMine(currentComment){
-	  if(currentComment.ownerOfComment==Accounts.userId()){
-		  return (<div>
-				<button onClick={this._deleteComment.bind(this,currentComment)}>Delete</button>
-		  </div>);
+	  if(currentComment.ownerOfComment_id==Accounts.userId()){
+		  return (
+
+				<button  className="delete_comment_buttton" aria-hidden="true" onClick={this._deleteComment.bind(this,currentComment)}>&times;</button>
+		   );
 	  }else{
-		  return(<div>Ne e tvoi we</div>);
+		  return(<div></div>);
 	  }
-	  
+
   }
+
+	_hideCommentBox(){
+		var x = document.getElementById('commentBox');
+		if (x.style.display === 'none') {
+				x.style.display = 'block';
+		} else {
+				x.style.display = 'none';
+		}
+	}
   _printComments(){
-	  
-	/*  var asd ="COMM";
-	  return(
-			<div>
-				{asd}
-			</div>
-	);
-	*/
-	
+
 	return this.props.currentMeme.comments.map((comment) => {
       return (
-        <div>
-			Text: {comment.commentText} User: {comment.ownerOfComment}  {this._isCommentMine(comment)}
-        </div>
+        <li>
+					{this._isCommentMine(comment)} {comment.ownerOfComment_name} said:{comment.commentText}
+
+        </li>
       );
     });
   };
   render() {
     return (
-		<div>
-		
+			<div>
+			<div className="titleBox">
 
-		
-		<div>
-			<div >
-			<label>Comment Box</label>
-			
+				<label onClick={this._hideCommentBox.bind(this)}>Comment Box</label>
+
 			</div>
-			{this._printComments()}
+			<div  id="commentBox" className="detailBox">
+				<div>
+
+
+					<div>
+					<ul className="commentList">
+						{this._printComments()}
+					</ul>
+					</div>
 		</div>
 		<form onSubmit={(e)=>this._submitComment(e)}>
 			<center>
-			<FormControl style={{width:500}}name="textAreaComment" componentClass="textarea" placeholder="Say something :)" />
+			<FormControl name="textAreaComment" componentClass="textarea" placeholder="Say something :)" />
 			</center>
-            <Button  type="submit">Submt</Button>
+            <button  className="button_success_cyan" 	type="submit">Submit</button>
 
-          
+
         </form>
       </div>
+		</div>
     );
   }
 

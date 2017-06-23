@@ -11,7 +11,9 @@ export default class User extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.currentUser.profile.givenName}</h1>
+          <img className="profile_picture_adjustments" src={this.props.currentUser.profile.profile_picture}/>
+          <div> Name: {this.props.currentUser.profile.givenName} </div>
+          <div> Surname: {this.props.currentUser.profile.surname} </div>
 
       </div>
 

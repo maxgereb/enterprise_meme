@@ -175,4 +175,17 @@
   &:active {
     transform: scale(1.1);
   }
+
+}
+
+
+.simple_border{
+  border: 2px solid black;
+}
+
+.delete_comment_buttton{
+  border: 2px solid black;
+  color:black;
+  float:left;
+  background: #ef9a9a;
 }
