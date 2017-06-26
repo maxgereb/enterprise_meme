@@ -25,6 +25,42 @@ export default class Meme extends React.Component {
 		Memes.remove(this.props.meme._id);
 
 	}
+	upvote(e){
+		e.preventDefault();
+		var userId = Accounts.userId();
+		if(this.props.meme.upvotes.indexOf(userId)<0){
+			Memes.update(this.props.meme._id, {
+							$inc: {
+							  votes: 1
+							}
+						  });
+			Memes.update(this.props.meme._id, {
+							$push: {
+							  upvotes: userId
+							}
+						  });
+						  
+		}
+	}
+	downvote(e){
+		e.preventDefault();
+		var userId = Accounts.userId();
+		if(this.props.meme.upvotes.indexOf(userId)>=0){
+			
+		    Memes.update(this.props.meme._id, {
+					$inc: {
+					  votes: -1
+					}
+				 });
+			Memes.update(this.props.meme._id, {
+							$pull: {
+							  upvotes: userId
+							}
+						  });
+							
+			}
+	}
+	
 	isProfilePage(){
 			if(window.location.pathname.endsWith("myMemes")){
 
@@ -53,24 +89,11 @@ export default class Meme extends React.Component {
 				return(
 					<div>
 					  <ButtonGroup >
-
-						<button className="button_upvote" onClick={() => {
-						  Memes.update(this.props.meme._id, {
-							$inc: {
-							  votes: 1
-							}
-						  });
-						}} >+</button>
+	
+						<button className="button_upvote" onClick={(e)=>this.upvote(e)} >+</button>
 
 
-						<button className="button_downvote" onClick={() => {if(this.props.meme.votes>0){
-							  Memes.update(this.props.meme._id, {
-								$inc: {
-								  votes: -1
-								}
-							  });
-							}
-						}} >-</button>
+						<button className="button_downvote" onClick={(e)=>this.downvote(e)} >-</button>
 
 					  </ButtonGroup>
 					</div>

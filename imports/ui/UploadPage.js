@@ -14,7 +14,8 @@ export default class UploadPage extends React.Component {
       hashtags: [],
       votes: 0,
       description: '',
-	  comments: []
+	  comments: [],
+	  upvotes: []
     };
   }
 
@@ -43,7 +44,8 @@ export default class UploadPage extends React.Component {
           description: this.state.description,
           hashtags: this.state.hashtags,
           votes: this.state.votes,
-		  comments: this.state.comments
+		  comments: this.state.comments,
+		  upvotes: this.state.upvotes
         });
         alert("Upload successful!");
         browserHistory.push('/startPage');
