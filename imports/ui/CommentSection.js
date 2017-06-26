@@ -66,7 +66,7 @@ export default class CommentSection extends React.Component {
   }
 
 	_hideCommentBox(){
-		var x = document.getElementById('commentBox');
+		var x = this.refs.commentBoxRef;
 		if (x.style.display === 'none') {
 				x.style.display = 'block';
 		} else {
@@ -92,7 +92,7 @@ export default class CommentSection extends React.Component {
 				<label onClick={this._hideCommentBox.bind(this)}>Comment Box</label>
 
 			</div>
-			<div className="detailBox" id="commentBox">
+			<div className="detailBox" id="commentBox" ref="commentBoxRef" >
 				<div >
 
 
