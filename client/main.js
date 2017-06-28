@@ -9,13 +9,15 @@ import LoginForm from './../imports/ui/LoginForm';
 import RegisterForm from './../imports/ui/RegisterForm';
 import UploadPage from './../imports/ui/UploadPage';
 import ProfileMemes from './../imports/ui/ProfileMemes';
+import GroupsPage from './../imports/ui/GroupsPage';
 import {Memes} from './../imports/api/memes.js';
+import {Groups} from './../imports/api/groups.js';
 import ProfileSettings from './../imports/ui/ChangeProfileSettings';
 import ProfileFriendsPage from './../imports/ui/ProfileFriendsPage';
 import FriendsList from './../imports/ui/FriendsList';
 export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
-const authencticatedPages = ['/startPage', '/upload','/profile','/myMemes','/myFriends'];
+const authencticatedPages = ['/startPage', '/upload','/profile','/myMemes','/myFriends','/groupsPage'];
 
 /* KACHEV IMA MALKA PISHKA */
 const onEnterPublicPage = () => {
@@ -43,6 +45,7 @@ const routes = (
       <Route path="/myMemes" component={ProfileMemes} onEnter={onEnterPrivatePage}/>
       <Route path="/myFriends" component={FriendsList} onEnter={onEnterPrivatePage}/>
       <Route path="/manageFriends" component={ProfileFriendsPage} onEnter={onEnterPrivatePage}/>
+	  <Route path="/groupsPage" component={GroupsPage} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
 );

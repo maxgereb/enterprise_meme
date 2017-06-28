@@ -16,6 +16,9 @@ export default class Navigationbar extends React.Component {
   redirectToUploadPage() {
     browserHistory.push("/upload");
   }
+  redirectToGroupsPage() {
+    browserHistory.push("/groupsPage");
+  }
   searchSubmit(){
 	  var searchWord = document.getElementById('searchField').value;
 	  if(document.getElementById('searchField').value){
@@ -66,7 +69,7 @@ export default class Navigationbar extends React.Component {
 
 
             <Navbar.Form pullRight>
-
+	   <button className="button_primary_navbar_purple"  onClick={this.redirectToGroupsPage.bind(this)} >Groups</button>
        <button className="button_primary_navbar_purple"  onClick={this.redirectToUploadPage.bind(this)} >Upload+</button>
        <button className="button_warning_navbar_sunflower" onClick={()=>{browserHistory.push("/profile");}} >Profile</button>
      </Navbar.Form>
