@@ -13,6 +13,7 @@ import GroupsPage from './../imports/ui/GroupsPage';
 import {Memes} from './../imports/api/memes.js';
 import {Groups} from './../imports/api/groups.js';
 import ProfileSettings from './../imports/ui/ChangeProfileSettings';
+
 import ProfileFriendsPage from './../imports/ui/ProfileFriendsPage';
 import FriendsList from './../imports/ui/FriendsList';
 export var all_memes = [];
@@ -45,6 +46,7 @@ const routes = (
       <Route path="/myMemes" component={ProfileMemes} onEnter={onEnterPrivatePage}/>
       <Route path="/myFriends" component={FriendsList} onEnter={onEnterPrivatePage}/>
       <Route path="/manageFriends" component={ProfileFriendsPage} onEnter={onEnterPrivatePage}/>
+
 	  <Route path="/groupsPage" component={GroupsPage} onEnter={onEnterPrivatePage}/>
     </div>
   </Router>
@@ -73,21 +75,21 @@ Meteor.startup(() => {
     ReactDOM.render(routes, document.getElementById('main'));
 
   });
-  setInterval(function(){ 
-		console.log("contentGen");
-		var faker = require('faker');
-		var randomImg = faker.image.image();
-		var randomDescription = faker.lorem.word();
-		Memes.insert({
-          memeImage: randomImg,
-          uploaderId: "0000",
-          uploaderName: "contentGenerator",
-          description: randomDescription,
-          hashtags: ["#fake" ,"#meme"],
-          votes: 0,
-		  comments: [],
-		  upvotes: []
-        });
-
-  }, 60000);
+  // setInterval(function(){
+	// 	console.log("contentGen");
+	// 	var faker = require('faker');
+	// 	var randomImg = faker.image.image();
+	// 	var randomDescription = faker.lorem.word();
+	// 	Memes.insert({
+  //         memeImage: randomImg,
+  //         uploaderId: "0000",
+  //         uploaderName: "contentGenerator",
+  //         description: randomDescription,
+  //         hashtags: ["#fake" ,"#meme"],
+  //         votes: 0,
+	// 	  comments: [],
+	// 	  upvotes: []
+  //       });
+  //
+  // }, 60000);
 });

@@ -39,14 +39,14 @@ export default class Meme extends React.Component {
 							  upvotes: userId
 							}
 						  });
-						  
+
 		}
 	}
 	downvote(e){
 		e.preventDefault();
 		var userId = Accounts.userId();
 		if(this.props.meme.upvotes.indexOf(userId)>=0){
-			
+
 		    Memes.update(this.props.meme._id, {
 					$inc: {
 					  votes: -1
@@ -57,10 +57,10 @@ export default class Meme extends React.Component {
 							  upvotes: userId
 							}
 						  });
-							
+
 			}
 	}
-	
+
 	isProfilePage(){
 			if(window.location.pathname.endsWith("myMemes")){
 
@@ -68,20 +68,20 @@ export default class Meme extends React.Component {
 				<div>
 
 					<form onSubmit={this.editDescription.bind(this)}>
-					<center>
-					<FormControl className="form_control" style={{width: 400}} type="text" id="descriptionEdit" placeholder="Enter new description"/>
-					</center>
-					<button className="button_warning_sunflower" type="submit">
-					  Save description
-					</button>
+						<center>
+							<FormControl className="form_control" style={{width: 400}} type="text" id="descriptionEdit" placeholder="Enter new description"/>
+						</center>
+						<button className="button_warning_sunflower" type="submit">
+							Save description
+						</button>
 
 
 
-					<button className="button_danger_red" onClick={(e)=> this.deleteMeme(e)} >
+						<button className="button_danger_red" onClick={(e)=> this.deleteMeme(e)} >
 					  Delete meme!
 					</button>
 					</form>
-				
+
 				</div>
 
 			);
@@ -89,7 +89,7 @@ export default class Meme extends React.Component {
 				return(
 					<div>
 					  <ButtonGroup >
-	
+
 						<button className="button_upvote" onClick={(e)=>this.upvote(e)} >+</button>
 
 
@@ -113,15 +113,15 @@ export default class Meme extends React.Component {
     return (
       <div>
 
-        <div className="meme_container">
+        <div>
 					<h3>{this.props.meme.description}</h3>
           <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/>
             Hastags: {this.props.meme.hashtags}  ,  Votes: {this.props.meme.votes} , <div> Uploaded by {this.props.meme.uploaderName}</div>
 			<div>
-				
+
 			</div>
        </div>
-	   
+
 		{ this.isProfilePage()}
 		<CommentSection currentMeme={this.props.meme}/>
 		<br/><br/>

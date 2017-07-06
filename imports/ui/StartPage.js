@@ -10,6 +10,7 @@ import {Memes} from './../api/memes';
 import {browserHistory} from 'react-router';
 import {Template} from 'meteor/templating';
 import PropTypes from 'prop-types';
+ 
 import {
   Button,
   Navbar,

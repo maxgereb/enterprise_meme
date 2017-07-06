@@ -1,15 +1,21 @@
 /* CSS declarations go here */
 
+.my_background{
 
+}
 form {
   text-align: center;
 }
 
 
 body{
-  background:#181C1D;
+
   font-family:  Helvetica, sans-serif;
   font-size:1.6rem;
+  margin: 0 0 0 0;
+  background:url("images/background.jpg");
+	background-size:cover;
+  background-repeat:initial;
 }
 
 h1{
@@ -26,3 +32,4 @@ h1{
 @import './../imports/client/ui/form_control_adjustments';
 @import './../imports/client/ui/user_box';
 @import './../imports/client/ui/comment_box';
+@import './../imports/client/ui/profile_page_style';

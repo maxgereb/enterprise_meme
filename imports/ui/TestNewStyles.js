@@ -6,7 +6,7 @@ import $ from 'jquery';
 import {Image, Button, FormControl} from 'react-bootstrap';
 
 
-export default class ProfilePage extends React.Component {
+export default class User extends React.Component {
 
   constructor(props){
     super(props);
