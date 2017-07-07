@@ -20,6 +20,7 @@ export default class AllUsersList extends React.Component{
 
 
 
+
   componentDidMount(){
 
     this.usersTracker=Tracker.autorun(()=>{
@@ -35,20 +36,20 @@ export default class AllUsersList extends React.Component{
   }
 
 
-  addToFriends(user){
-
-    console.log("kfo ima tuka ", Meteor.user().profile.friendsList);
-    var isAlreadyFriend = Meteor.user().profile.friendsList.some(function(element) {
-        return element._id == user._id;
-      });
-    if(isAlreadyFriend){
-      alert("You already have this user as friend");
-    }else{
-      Meteor.users.update(Meteor.userId(), { $addToSet: { 'profile.friendsList': user } });
-    }
-
-
-  }
+  // followUser(user){
+  //
+  //   console.log("kfo ima tuka ", Meteor.user().profile.friendsList);
+  //   var isAlreadyFriend = Meteor.user().profile.friendsList.some(function(element) {
+  //       return element._id == user._id;
+  //     });
+  //   if(isAlreadyFriend){
+  //     alert("You already have this user as friend");
+  //   }else{
+  //     Meteor.users.update(Meteor.userId(), { $addToSet: { 'profile.friendsList': user } });
+  //   }
+  //
+  //
+  // }
 
   renderAllUsers(){
     console.log("kolko user ",this.state.allUsers.length);
@@ -57,11 +58,11 @@ export default class AllUsersList extends React.Component{
       /* Don't show my profile only other users */
       if(user._id!=Meteor.userId()){
           return (
-            <div className="item">
-              <User key={user._id} currentUser={user}/>
-              <button className="button_primary_purple simple_border" onClick={()=>{
+            <div>
+              <User key={user._id} currentUser={user} />
+              {/* <button className="button_primary_purple simple_border" onClick={()=>{
                 this.addToFriends(user);
-              }}>Add to Friends</button>
+              }}>Add to Friends</button> */}
             </div>
           );
         }});

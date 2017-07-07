@@ -39,7 +39,7 @@ export default class CommentSection extends React.Component {
 
 	 }
 	 event.target.textAreaComment.value='';
-	 
+
   }
   _deleteComment(currentComment){
 	  	  console.log("id OF comment");
@@ -87,30 +87,32 @@ export default class CommentSection extends React.Component {
   render() {
     return (
 			<div>
-			<div   className="titleBox">
-
-				<label onClick={this._hideCommentBox.bind(this)}>Comment Box</label>
-
-			</div>
-			<div className="detailBox" id="commentBox" ref="commentBoxRef" >
-				<div >
 
 
-					<div>
-					<ul className="commentList">
-						{this._printComments()}
-					</ul>
-					</div>
-		</div>
-		<form onSubmit={(e)=>this._submitComment(e)}>
-			<center>
-			<FormControl id="textAreaComment" name="textAreaComment" componentClass="textarea" placeholder="Say something :)" />
-			</center>
+        <div className="titleBox">
+
+          <label onClick={this._hideCommentBox.bind(this)}>Comment Box</label>
+
+        </div>
+        <div className="detailBox" id="commentBox" ref="commentBoxRef" >
+          <div >
+
+
+            <div>
+              <ul className="commentList">
+                {this._printComments()}
+              </ul>
+            </div>
+          </div>
+          <form onSubmit={(e)=>this._submitComment(e)}>
+            <center>
+              <FormControl id="textAreaComment" name="textAreaComment" componentClass="textarea" placeholder="Say something :)" />
+            </center>
             <button  className="button_success_cyan" 	type="submit">Submit</button>
 
 
-        </form>
-      </div>
+          </form>
+        </div>
 		</div>
     );
   }

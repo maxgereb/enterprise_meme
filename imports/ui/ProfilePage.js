@@ -103,7 +103,7 @@ export default class ProfilePage extends React.Component {
               <h5 className="buttons" onClick={()=>{
 
                 Accounts.logout();
-                browserHistory.replace('/');
+                
               }}><a>Logout</a></h5>
 
               <div class="Social">

@@ -50,7 +50,7 @@ export default class FriendsList extends React.Component{
 
 
         return (
-          <div className="item">
+          <div>
             <Friend friend={friend}/>
           </div>
         );
@@ -63,12 +63,12 @@ export default class FriendsList extends React.Component{
         <div>
           <Navigationbar/>
 
-            <center>
+          <center>
 
-             <div className="profilepage_meme_container">
+            <div className="all_directions_distance">
 
-             {this.renderAllFriends()}
-           </div>
+              {this.renderAllFriends()}
+            </div>
           </center>
 
        </div>

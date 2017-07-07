@@ -1,0 +1,128 @@
+
+.heart_upvote_button{
+
+    width: 100px;
+    height: 100px;
+    background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    transition: background-position 1s steps(28);
+    transition-duration: 0s;
+
+    &.is-active {
+      transition-duration: 1s;
+      background-position: -2800px 0;
+    }
+
+}
+
+
+.meme_attribute_titles {
+font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+font-weight: 700;
+text-decoration:none;
+text-transform:uppercase;
+color:#FFF;
+}
+
+.meme_attribute_content{
+  font-style: italic;
+  font-weight: 300;
+}
+
+.meme_attributes_gravity_adjustments{
+  margin-top: 30%;
+}
+.show{
+
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    border: 1px solid rgba(0,0,0,0.04);
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    background: #fff;
+    display: block;
+    border-radius: 4px;
+
+
+}
+
+.show .mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0
+}
+
+.show-first a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #FFF;
+  color: #222;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+  border: 1px solid #999;
+
+}
+
+.show-first a.more:hover {
+  box-shadow: 0 0 5px #000;
+}
+
+.show-first p{
+  letter-spacing: 0.15em;
+  color: #f4f4f4;
+  font-size: 28px;
+}
+
+.show-first .inside_image {
+  transition: all 0.2s linear;
+}
+
+.show-first .mask {
+  opacity: 0;
+  background-color: rgba(0,0,0, 0.9);
+  transition: all 0.4s ease-in-out;
+}
+.show-first h2 {
+  color: #f2f2f2;
+  margin-top: 10%;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  background: rgba(0,0,0,1);
+}
+.show-first p {
+  margin-top: 10%;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.show-first a.info{
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-first:hover .inside_image{
+  transform: scale(1.1);
+}
+.show-first:hover .mask {
+  opacity: 1;
+}
+.show-first:hover h2,
+.show-first:hover p,
+.show-first:hover a.info {
+  opacity: 1;
+}
+.show-first:hover p {
+  transition-delay: 0.1s;
+}
+.show-first:hover a.info {
+  transition-delay: 0.2s;
+}

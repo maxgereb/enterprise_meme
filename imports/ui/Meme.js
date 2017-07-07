@@ -5,7 +5,23 @@ import {Memes} from './../api/memes.js';
 import {Router} from 'react-router';
 import {Meteor} from 'meteor/meteor';
 import CommentSection from './CommentSection';
+import MemeDescription from './MemeDescription';
+import $ from 'jquery';
 export default class Meme extends React.Component {
+
+	constructor(props) {
+	        super(props);
+
+	        this.state = {
+	            active: false,
+	        };
+	    }
+
+	toggleClass() {
+    	const currentState = this.state.active;
+	    this.setState({ active: !currentState });
+	  };
+
 	editDescription(event){
 		 event.preventDefault();
 
@@ -38,7 +54,7 @@ export default class Meme extends React.Component {
 							$push: {
 							  upvotes: userId
 							}
-						  });
+						});{this.state.active ? 'your_className': null}
 
 		}
 	}
@@ -78,8 +94,8 @@ export default class Meme extends React.Component {
 
 
 						<button className="button_danger_red" onClick={(e)=> this.deleteMeme(e)} >
-					  Delete meme!
-					</button>
+							Delete meme!
+						</button>
 					</form>
 
 				</div>
@@ -88,14 +104,16 @@ export default class Meme extends React.Component {
 			}else{
 				return(
 					<div>
-					  <ButtonGroup >
+						<div className={this.state.active ? 'heart_upvote_button is-active': 'heart_upvote_button'}  onClick={this.toggleClass.bind(this)} ></div>
 
-						<button className="button_upvote" onClick={(e)=>this.upvote(e)} >+</button>
+					  {/* <ButtonGroup >
+
+							<button className="button_upvote" onClick={(e)=>this.upvote(e)} >+</button>
 
 
-						<button className="button_downvote" onClick={(e)=>this.downvote(e)} >-</button>
+							<button className="button_downvote" onClick={(e)=>this.downvote(e)} >-</button>
 
-					  </ButtonGroup>
+					  </ButtonGroup> */}
 					</div>
 
 
@@ -115,16 +133,26 @@ export default class Meme extends React.Component {
 
         <div>
 					<h3>{this.props.meme.description}</h3>
-          <Image className="image_size" src={this.props.meme.memeImage} responsive rounded/>
-            Hastags: {this.props.meme.hashtags}  ,  Votes: {this.props.meme.votes} , <div> Uploaded by {this.props.meme.uploaderName}</div>
-			<div>
 
-			</div>
-       </div>
 
-		{ this.isProfilePage()}
-		<CommentSection currentMeme={this.props.meme}/>
-		<br/><br/>
+					<div className="show show-first">
+
+						<Image className="image_size inside_image" src={this.props.meme.memeImage} responsive rounded/>
+
+						<div className="mask">
+							<MemeDescription meme={this.props.meme}/>
+						</div>
+
+					</div>
+
+
+
+
+				</div>
+
+				{ this.isProfilePage()}
+				<CommentSection currentMeme={this.props.meme}/>
+				<br/><br/>
       </div>
     );
   }

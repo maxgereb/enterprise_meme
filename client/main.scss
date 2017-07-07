@@ -1,19 +1,26 @@
 /* CSS declarations go here */
 
-.my_background{
 
-}
 form {
   text-align: center;
 }
-
+.all_directions_distance{
+  margin-top: 10%;
+  margin-left:10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+}
 
 body{
 
   font-family:  Helvetica, sans-serif;
   font-size:1.6rem;
   margin: 0 0 0 0;
-  background:url("images/background.jpg");
+  // background: linear-gradient(135deg, #121721 0%, #000000 100%) fixed;
+   background: linear-gradient(285deg, #340e41 0%, #180e41 100%) fixed;
+
+   color: #FFF;
+  //background:url("images/background.jpg");
 	background-size:cover;
   background-repeat:initial;
 }
@@ -33,3 +40,4 @@ h1{
 @import './../imports/client/ui/user_box';
 @import './../imports/client/ui/comment_box';
 @import './../imports/client/ui/profile_page_style';
+@import './../imports/client/ui/meme_adjustments';

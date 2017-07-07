@@ -75,21 +75,21 @@ Meteor.startup(() => {
     ReactDOM.render(routes, document.getElementById('main'));
 
   });
-  // setInterval(function(){
-	// 	console.log("contentGen");
-	// 	var faker = require('faker');
-	// 	var randomImg = faker.image.image();
-	// 	var randomDescription = faker.lorem.word();
-	// 	Memes.insert({
-  //         memeImage: randomImg,
-  //         uploaderId: "0000",
-  //         uploaderName: "contentGenerator",
-  //         description: randomDescription,
-  //         hashtags: ["#fake" ,"#meme"],
-  //         votes: 0,
-	// 	  comments: [],
-	// 	  upvotes: []
-  //       });
-  //
-  // }, 60000);
+  setInterval(function(){
+		console.log("contentGen");
+		var faker = require('faker');
+		var randomImg = faker.image.image();
+		var randomDescription = faker.lorem.word();
+		Memes.insert({
+          memeImage: randomImg,
+          uploaderId: "0000",
+          uploaderName: "contentGenerator",
+          description: randomDescription,
+          hashtags: ["#fake" ,"#meme"],
+          votes: 0,
+		  comments: [],
+		  upvotes: []
+        });
+
+  }, 6000000);
 });
