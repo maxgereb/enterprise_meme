@@ -14,6 +14,7 @@ export default class User extends React.Component {
           return("Following");
         }else{
           return("Not following");
+          
         }
 
 }
