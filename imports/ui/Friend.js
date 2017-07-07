@@ -13,8 +13,8 @@ export default class Friend extends React.Component{
         <img src={this.props.friend.profile.profile_picture} alt="profile-sample1" className="background" />
         <img src={this.props.friend.profile.profile_picture} alt="profile-sample1" className="profile" />
         <figcaption>
-          <h3>{this.props.friend.profile.givenName}<span>Followed</span></h3>
-          <div className="icons"><a href="#"><i className="ion-social-reddit-outline"></i></a><a href="#"> <i className="ion-social-twitter-outline"></i></a><a href="#"> <i className="ion-social-vimeo-outline"></i></a></div>
+          <h3>{this.props.friend.profile.givenName}<span>has {this.props.friend.profile.friendsList.length} followers.</span></h3>
+
         </figcaption>
       </figure>
 

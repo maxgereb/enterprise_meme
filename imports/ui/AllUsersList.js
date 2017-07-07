@@ -1,11 +1,12 @@
 import React from 'react';
-import {Button,FormControl} from 'react-bootstrap';
+
 import {Meteor} from 'meteor/meteor';
 import {Users} from './../api/users';
 import {browserHistory} from 'react-router';
 import { Accounts } from 'meteor/accounts-base'
 import Navigationbar from './Navigationbar';
 import User from './User';
+import {Row,Col,Image, Button, FormControl} from 'react-bootstrap';
 
 export default class AllUsersList extends React.Component{
 
@@ -59,7 +60,8 @@ export default class AllUsersList extends React.Component{
       if(user._id!=Meteor.userId()){
           return (
             <div>
-              <User key={user._id} currentUser={user} />
+              <Col xs={12} md={6} lg={3}>  <User key={user._id} currentUser={user} /></Col>
+
               {/* <button className="button_primary_purple simple_border" onClick={()=>{
                 this.addToFriends(user);
               }}>Add to Friends</button> */}
@@ -74,11 +76,14 @@ export default class AllUsersList extends React.Component{
       <div>
         <Navigationbar/>
 
-          <center>
+        <center>
 
-           <h1>All users </h1>
-
-           {this.renderAllUsers()}
+          <h1> All users </h1>
+          <div>
+            <Row>
+              {this.renderAllUsers()}
+            </Row>
+          </div>
 
         </center>
 

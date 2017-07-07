@@ -91,7 +91,7 @@ export default class CommentSection extends React.Component {
 
         <div className="titleBox">
 
-          <label onClick={this._hideCommentBox.bind(this)}>Comment Box</label>
+          <label onClick={this._hideCommentBox.bind(this)}>{this.props.currentMeme.comments.length} Comments</label>
 
         </div>
         <div className="detailBox" id="commentBox" ref="commentBoxRef" >

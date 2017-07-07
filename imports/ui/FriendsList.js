@@ -5,6 +5,9 @@ import {Users} from './../api/users';
 import {browserHistory} from 'react-router';
 import { Accounts } from 'meteor/accounts-base'
 import Navigationbar from './Navigationbar';
+import {Row,Col,Image, Button, FormControl} from 'react-bootstrap';
+
+
 export default class FriendsList extends React.Component{
 
     constructor(props){
@@ -51,7 +54,9 @@ export default class FriendsList extends React.Component{
 
         return (
           <div>
-            <Friend friend={friend}/>
+            <Col xs={12} md={6} lg={3}>
+              <Friend friend={friend}/>
+            </Col>
           </div>
         );
 
