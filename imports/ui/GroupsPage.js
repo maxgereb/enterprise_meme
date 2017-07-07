@@ -85,7 +85,7 @@ export default class GroupsPage extends React.Component{
 			</center>
 		</form>
 		<center>
-			 <h1>All groups:</h1> 
+			 <h1>Groups:</h1> 
 			{this._listGroups()}
 			
 		</center>

@@ -12,7 +12,7 @@ export default class MemeDescription extends React.Component {
       <div className="meme_attributes_gravity_adjustments">
 
 
-        <div><span className="meme_attribute_titles">  Hastags:</span> {this.props.meme.hashtags}</div>
+        <div><span className="meme_attribute_titles">  Hashtags:</span> {this.props.meme.hashtags}</div>
         <div><span className="meme_attribute_titles"> Votes </span>: {this.props.meme.votes}</div>
         <div className="meme_attribute_content"> Uploaded by:  {this.props.meme.uploaderName}</div>
 
