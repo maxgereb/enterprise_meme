@@ -4,4 +4,5 @@ import {Groups} from './../imports/api/groups.js';
 Meteor.startup(() => {
 
   console.log("Server started ", Memes.find().fetch().length);
+  Houston.add_collection(Meteor.users);
 });

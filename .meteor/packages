@@ -28,3 +28,6 @@ cfs:gridfs
 gadicc:blaze-react-component
 jquery
 accounts-meteor-developer
+iron:router
+houston:admin
+session

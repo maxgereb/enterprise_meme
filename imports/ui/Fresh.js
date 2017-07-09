@@ -30,7 +30,7 @@ export default class FreshPage extends React.Component {
 	
     };
     this.searchStateChange = this.searchStateChange.bind(this);
-	this.setSort = this.setSort.bind(this);
+
 	
   }
 

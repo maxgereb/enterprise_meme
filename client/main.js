@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import {Router, Route, browserHistory} from 'react-router';
 import {Tracker} from 'meteor/tracker';
+import { Router as IronRouter} from 'meteor/iron:router'
 import ProfilePage from './../imports/ui/ProfilePage';
 import StartPage from './../imports/ui/StartPage';
 import HotPage from './../imports/ui/Hot';
@@ -97,4 +98,7 @@ Meteor.startup(() => {
         });
 
   }, 6000000);
+	IronRouter.route('(.*)', function () {
+	//do nothing
+	});
 });
