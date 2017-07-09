@@ -13,7 +13,7 @@ export default class Friend extends React.Component{
         <img src={this.props.friend.profile.profile_picture} alt="profile-sample1" className="background" />
         <img src={this.props.friend.profile.profile_picture} alt="profile-sample1" className="profile" />
         <figcaption>
-          <h3>{this.props.friend.profile.givenName}<span>has {this.props.friend.profile.friendsList.length} followers.</span></h3>
+          <h3>{this.props.friend.profile.givenName}<span>follows {this.props.friend.profile.friendsList.length} people.</span></h3>
 
         </figcaption>
       </figure>

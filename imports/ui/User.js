@@ -14,7 +14,7 @@ export default class User extends React.Component {
           return("Following");
         }else{
           return("Not following");
-          
+
         }
 
 }
@@ -28,7 +28,7 @@ export default class User extends React.Component {
     if(isAlreadyFriend){
       alert("You already have this user as friend");
     }else{
-      alert("You are now following: \"",user.profile.givenName,"\". Enjoy ")
+      alert("You are now following: \""+user.profile.givenName+"\". Enjoy ")
       Meteor.users.update(Meteor.userId(), { $addToSet: { 'profile.friendsList': user } });
     }
 
@@ -45,7 +45,7 @@ export default class User extends React.Component {
       if(!isAlreadyFriend){
         alert("You can't unfollow someone you are not following. That's fairly obvious, so maybe u are dumb.");
       }else{
-
+        console.log("vikam pishka");
         Meteor.users.update(Meteor.userId(), { $pull: { 'profile.friendsList': user } });
       }
 
