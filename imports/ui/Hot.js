@@ -20,13 +20,14 @@ import {
   MenuItem
 } from 'react-bootstrap';
 
-export default class StartPage extends React.Component {
+export default class HotPage extends React.Component {
   constructor(props) {
 	
     super(props);
 
     this.state = {
       memes: []
+
     };
     this.searchStateChange = this.searchStateChange.bind(this);
 
@@ -35,8 +36,12 @@ export default class StartPage extends React.Component {
 
   componentDidMount() {
     this.memesTracker = Tracker.autorun(() => {
-    var memes = Memes.find().fetch();
-
+    var memes = Memes.find({}, {
+        sort: {
+          votes: -1
+        }
+		}).fetch();
+	
       this.setState({memes});
     });
   }
@@ -58,7 +63,7 @@ export default class StartPage extends React.Component {
 
       <div className="genericform">
 
-        <div><Navigationbar  changeStartpageState={this.searchStateChange}/></div>
+        <div><Navigationbar changeStartpageState={this.searchStateChange}/></div>
 
         <div><MemeList currentMemeList={this.state.memes}/></div>
 

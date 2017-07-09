@@ -19,6 +19,14 @@ export default class Navigationbar extends React.Component {
   redirectToGroupsPage() {
     browserHistory.push("/groupsPage");
   }
+  redirectToFresh() {
+
+    browserHistory.push("/fresh");
+  }
+  redirectToHot() {
+
+    browserHistory.push("/hot");
+  }
   searchSubmit(){
 	  var searchWord = document.getElementById('searchField').value;
 	  if(document.getElementById('searchField').value){
@@ -56,8 +64,8 @@ export default class Navigationbar extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#">Hot</NavItem>
-              <NavItem eventKey={2} href="#">Fresh</NavItem>
+              <NavItem onClick={(e)=>this.redirectToHot()} eventKey={1} href="startPage">Hot</NavItem>
+              <NavItem onClick={(e)=>this.redirectToFresh()} eventKey={2} href="startPage">Fresh</NavItem>
 
               <Navbar.Form pullLeft onSubmit={(e) => this.searchSubmit(e)}>
                 <FormGroup>

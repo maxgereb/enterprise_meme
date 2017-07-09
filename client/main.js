@@ -5,6 +5,8 @@ import {Router, Route, browserHistory} from 'react-router';
 import {Tracker} from 'meteor/tracker';
 import ProfilePage from './../imports/ui/ProfilePage';
 import StartPage from './../imports/ui/StartPage';
+import HotPage from './../imports/ui/Hot';
+import FreshPage from './../imports/ui/Fresh';
 import LoginForm from './../imports/ui/LoginForm';
 import RegisterForm from './../imports/ui/RegisterForm';
 import UploadPage from './../imports/ui/UploadPage';
@@ -18,7 +20,7 @@ import ProfileFriendsPage from './../imports/ui/ProfileFriendsPage';
 import FriendsList from './../imports/ui/FriendsList';
 export var all_memes = [];
 const unauthenticatedPages = ['/', '/register'];
-const authencticatedPages = ['/startPage', '/upload','/profile','/myMemes','/myFriends','/groupsPage'];
+const authencticatedPages = ['/fresh','/hot','/startPage', '/upload','/profile','/myMemes','/myFriends','/groupsPage'];
 
 /* KACHEV IMA MALKA PISHKA */
 const onEnterPublicPage = () => {
@@ -38,6 +40,9 @@ const routes = (
   <Router history={browserHistory}>
     <div>
       <Route path="/register" component={RegisterForm} onEnter={onEnterPublicPage}/>
+	  <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
+	  <Route path="/fresh" component={FreshPage} onEnter={onEnterPrivatePage}/>
+	  <Route path="/hot" component={HotPage} onEnter={onEnterPrivatePage}/>
       <Route path="/" component={LoginForm} onEnter={onEnterPublicPage}/>
       <Route path="/startPage" component={StartPage} onEnter={onEnterPrivatePage}/>
       <Route path="/upload" component={UploadPage} onEnter={onEnterPrivatePage}/>

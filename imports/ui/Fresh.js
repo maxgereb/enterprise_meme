@@ -20,23 +20,35 @@ import {
   MenuItem
 } from 'react-bootstrap';
 
-export default class StartPage extends React.Component {
+export default class FreshPage extends React.Component {
   constructor(props) {
 	
     super(props);
 
     this.state = {
       memes: []
+	
     };
     this.searchStateChange = this.searchStateChange.bind(this);
-
+	this.setSort = this.setSort.bind(this);
 	
   }
 
   componentDidMount() {
     this.memesTracker = Tracker.autorun(() => {
     var memes = Memes.find().fetch();
+	var currentIndex=memes.length ;
+	while (0 !== currentIndex) {
+			// Pick a remaining element...
+			var randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
 
+			// And swap it with the current element.
+			var temporaryValue = memes[currentIndex];
+			memes[currentIndex] = memes[randomIndex];
+			memes[randomIndex] = temporaryValue;
+		  }
+	
       this.setState({memes});
     });
   }
