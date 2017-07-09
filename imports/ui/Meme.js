@@ -56,7 +56,7 @@ export default class Meme extends React.Component {
 							$push: {
 							  upvotes: userId
 							}
-						});{this.state.active ? 'your_className': null}
+						});
 
 		}
 	}
@@ -79,9 +79,9 @@ export default class Meme extends React.Component {
 			}
 	}
 		createDropDownOptions(myGroups) {
-     let items = [];         
-     for (let i = 0; i < myGroups.length; i++) {             
-          items.push(<MenuItem eventKey={i}>{myGroups[i].name}</MenuItem>);   
+     let items = [];
+     for (let i = 0; i < myGroups.length; i++) {
+          items.push(<MenuItem eventKey={i}>{myGroups[i].name}</MenuItem>);
 
      }
      return items;
@@ -145,6 +145,7 @@ export default class Meme extends React.Component {
 
 				{this.renderMaskButton(myGroups)}
 				<CommentSection currentMeme={this.props.meme}/>
+
 				<br/><br/>
       </div>
     );

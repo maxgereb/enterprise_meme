@@ -27,3 +27,4 @@ cfs:standard-packages
 cfs:gridfs
 gadicc:blaze-react-component
 jquery
+accounts-meteor-developer

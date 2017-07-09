@@ -46,7 +46,7 @@ export default class User extends React.Component {
         alert("You can't unfollow someone you are not following. That's fairly obvious, so maybe u are dumb.");
       }else{
         console.log("vikam pishka");
-        Meteor.users.update(Meteor.userId(), { $pull: { 'profile.friendsList': user } });
+        Meteor.users.update(Meteor.userId(), { $pull: { 'profile.friendsList': {"_id":user._id } }});
       }
 
 
