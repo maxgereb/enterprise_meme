@@ -1,0 +1,8 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+     "ROOT_URL": "http://memefiesta.eu.meteorapp.com",
+     "MONGO_URL": "mongodb://denkata:denkatabe@ds153422.mlab.com:53422/memefiestadatabase"
+     }
+   }
+}
